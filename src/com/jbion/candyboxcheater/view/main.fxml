@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jbion.candyboxcheater.view.MainController">
+   <center>
+      <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+            <Tab text="Info">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="-1.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <content>
+                              <VBox maxWidth="1.7976931348623157E308" minHeight="-Infinity" spacing="15.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Welcome, Candy Cheater!" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="31.0" />
+                                       </font>
+                                    </Label>
+                                    <Label maxWidth="1.7976931348623157E308" minHeight="-Infinity" text="This program is a variable editor for the game Candybox 2. This game can be played at candybox2.net, where you'll normally get 1 candy per second." wrapText="true">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <VBox minHeight="-Infinity" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="Get ready to cheat:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label lineSpacing="5.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" text="1. Wait for 30 current candies to get the developer request button&#10;2. Add all options by clicking that new button&#10;3. Go to the &quot;save&quot; tab, &quot;Saving&quot; section, and click on &quot;Get the current game as text&quot;&#10;4. Copy the text and paste it below, and click the &quot;Parse Save&quot; button&#10;5. Visit other tabs of this program and enjoy cheating!" wrapText="true">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <padding>
+                                                <Insets left="20.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox minHeight="-Infinity" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="When you're done changing stuff:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label lineSpacing="5.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" text="1. Click the &quot;Copy to clipboard&quot; button&#10;2. Go back to the website and go to the &quot;Save&quot; tab&#10;3. Paste the text in the &quot;Loading&quot; section&#10;4. Click &quot;Load&quot; and enjoy the new values!" wrapText="true">
+                                             <padding>
+                                                <Insets left="20.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Stocks">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefViewportHeight="120.0" prefViewportWidth="571.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <content>
+                              <GridPane hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                  <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+                                    <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" />
+                                    <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+                                    <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" maxWidth="40.0" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="80.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="-Infinity" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Candies" GridPane.rowIndex="1" />
+                                    <Label text="Eaten Candies" GridPane.rowIndex="2" />
+                                    <Label text="Thrown Candies" GridPane.rowIndex="3" />
+                                    <Label maxWidth="1.7976931348623157E308" text="Current" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                    <Label text="Accumulated" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                    <Label maxWidth="1.7976931348623157E308" text="Max" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                                    <TextField fx:id="candiesAddField" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                    <TextField fx:id="eatenCandiesAddField" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                    <TextField fx:id="thrownCandiesAddField" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                                    <Button mnemonicParsing="false" onAction="#addCandies" text="Add" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                    <Button mnemonicParsing="false" onAction="#addEatenCandies" text="Add" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                                    <Button mnemonicParsing="false" onAction="#addThrownCandies" text="Add" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                                    <Label fx:id="gameCandiesCurrent" text="??" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label fx:id="gameCandiesEatenCurrent" text="??" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label fx:id="gameCandiesThrownCurrent" text="??" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label fx:id="gameCandiesAccumulated" text="??" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label fx:id="gameCandiesEatenAccumulated" text="??" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Label fx:id="gameCandiesThrownAccumulated" text="??" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <Label fx:id="gameCandiesMax" text="??" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <Label fx:id="gameCandiesEatenMax" text="??" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Label fx:id="gameCandiesThrownMax" text="??" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Label text="Lollipops" GridPane.rowIndex="4" />
+                                    <Label text="Chocolate Bars" GridPane.rowIndex="5" />
+                                    <Label text="Pains au Chocolat" GridPane.rowIndex="6" />
+                                    <Label fx:id="gameLollipopsCurrent" text="??" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label fx:id="gameChocolateBarsCurrent" text="??" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Label fx:id="gameLollipopsAccumulated" text="??" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                    <Label fx:id="gameLollipopsMax" text="??" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                    <Label fx:id="gameChocolateBarsAccumulated" text="??" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                    <Label fx:id="gameChocolateBarsMax" text="??" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                    <Label fx:id="gamePainsAuChocolatCurrent" text="??" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <Label fx:id="gamePainsAuChocolatAccumulated" text="??" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                    <Label fx:id="gamePainsAuChocolatMax" text="??" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                    <TextField fx:id="lollipopsAddField" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                                    <TextField fx:id="chocolateBarsAddField" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                                    <TextField fx:id="painsAuChocolatAddField" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                                    <Button mnemonicParsing="false" onAction="#addLollipops" text="Add" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                                    <Button mnemonicParsing="false" onAction="#addChocolateBars" text="Add" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                                    <Button mnemonicParsing="false" onAction="#addPainsAuChocolat" text="Add" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                                    <Label text="Requires castle oven happy" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                           <opaqueInsets>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </opaqueInsets>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Village Progress">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <content>
+                              <GridPane hgap="10.0" vgap="5.0">
+                                 <children>
+                                    <Label text="Shop" GridPane.valignment="TOP" />
+                                    <Label text="Forge" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
+                                    <Label text="Right-most House" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                                    <Label text="4th House" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                    <CheckBox fx:id="cellarDone" mnemonicParsing="false" text="Cellar done" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                    <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="forgeFoundLollipop" mnemonicParsing="false" text="Lollipop picked up" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                    <Label text="(unlocks the main map)" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <ChoiceBox fx:id="fourthHouseCupboardStep" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                    <Label text="Cupboard:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Label text="Carpet:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <ChoiceBox fx:id="fourthHouseCarpetStep" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                    <CheckBox fx:id="fourthHouseFoundLollipopOnCupboard" mnemonicParsing="false" text="Lollipop picked up" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Miscellaneous">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <content>
+                              <GridPane hgap="10.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Language" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                    <Label text="Status bar type" GridPane.valignment="CENTER" />
+                                    <ChoiceBox fx:id="gameLanguage" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="gameInvertedColors" mnemonicParsing="false" text="Inverted colors" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                    <ChoiceBox fx:id="statusBarCornerStep" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <Label text="Click on top left-hand corner to change it in-game" GridPane.columnIndex="2" />
+                                    <CheckBox fx:id="gameDebug" mnemonicParsing="false" text="Debug mode" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                                    <Label text="Game mode" GridPane.rowIndex="2" />
+                                    <ChoiceBox fx:id="gameGameMode" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab disable="true" text="All Vars">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefViewportHeight="400.0" prefViewportWidth="248.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                           <content>
+                              <TableView fx:id="varTable" layoutX="187.0" layoutY="9.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                <columns>
+                                  <TableColumn maxWidth="-1.0" minWidth="300.0" prefWidth="-1.0" text="Variable Name" />
+                                  <TableColumn maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="Value" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </TabPane>
+   </center>
+   <bottom>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <TextArea fx:id="rawText" maxHeight="-Infinity" onInputMethodTextChanged="#parseSaveText" prefHeight="50.0" BorderPane.alignment="CENTER" />
+         </center>
+         <top>
+            <Label maxWidth="1.7976931348623157E308" text="Candybox save content:" BorderPane.alignment="CENTER" />
+         </top>
+         <right>
+            <VBox spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="reparseBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parseSaveText" text="Parse save" />
+                  <Button fx:id="clipboardBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#copyToClipboard" text="Copy to clipboard" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" top="5.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </BorderPane>
+   </bottom>
+</BorderPane>
