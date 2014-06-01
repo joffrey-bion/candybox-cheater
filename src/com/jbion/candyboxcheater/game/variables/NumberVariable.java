@@ -1,9 +1,9 @@
 package com.jbion.candyboxcheater.game.variables;
 
-import com.jbion.candyboxcheater.game.GameKey;
-
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
+import javafx.util.converter.NumberStringConverter;
 
 public class NumberVariable extends Variable {
 
@@ -12,18 +12,18 @@ public class NumberVariable extends Variable {
     public NumberVariable(String name, String value) {
         super(TYPE_NUMBER, name, value);
         longValue = new SimpleLongProperty(Long.parseLong(value));
+        Bindings.bindBidirectional(stringValueProperty(), longValue, new NumberStringConverter());
     }
 
     public LongProperty longValueProperty() {
         return longValue;
     }
     
-    public void set(long value) {
-        set(String.valueOf(value));
+    public void setLongValue(long value) {
         longValue.set(value);
     }
     
-    public long getAsLong() {
+    public long getLongValue() {
         return longValue.get();
     }
     
@@ -35,8 +35,8 @@ public class NumberVariable extends Variable {
      * @return The new value of this variable.
      */
     public long increment(long amount) {
-        long newValue = getAsLong() + amount;
-        set(newValue);
+        long newValue = getLongValue() + amount;
+        setLongValue(newValue);
         return newValue;
     }
 }

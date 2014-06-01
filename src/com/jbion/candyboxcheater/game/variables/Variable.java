@@ -1,14 +1,9 @@
 package com.jbion.candyboxcheater.game.variables;
 
-import com.jbion.candyboxcheater.game.GameKey;
-
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValueBase;
+
+import com.jbion.candyboxcheater.game.Key;
 
 public class Variable {
 
@@ -19,13 +14,14 @@ public class Variable {
     private String type;
     private String name;
 
-    private StringProperty strValue;
+    private StringProperty stringValue;
 
     protected Variable(String type, String name, String value) {
         super();
         this.type = type;
         this.name = name;
-        this.strValue = new SimpleStringProperty(value);
+        this.stringValue = new SimpleStringProperty(value);
+        getKey(); // variable existence check
     }
 
     public static Variable create(String type, String name, String value) {
@@ -41,24 +37,20 @@ public class Variable {
         }
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public GameKey getKey() {
-        return GameKey.valueOf(name);
+    public Key getKey() {
+        return Key.valueOf(name);
     }
 
     public StringProperty stringValueProperty() {
-        return strValue;
+        return stringValue;
     }
 
-    public void set(String value) {
-        this.strValue.set(value);
+    public void setStringValue(String value) {
+        this.stringValue.set(value);
     }
 
-    public String getAsString() {
-        return strValue.get();
+    public String getStringValue() {
+        return stringValue.get();
     }
 
     public void updateTo(Variable var) {
@@ -70,11 +62,11 @@ public class Variable {
             throw new IllegalArgumentException("This " + type + " variable '" + name + "', cannot take the given "
                     + var.type + " value");
         }
-        this.strValue.set(var.getAsString());
+        this.stringValue.set(var.getStringValue());
     }
 
     @Override
     public String toString() {
-        return type + ' ' + name + '=' + strValue.get();
+        return type + ' ' + name + '=' + stringValue.get();
     }
 }

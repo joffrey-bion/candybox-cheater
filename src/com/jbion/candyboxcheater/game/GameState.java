@@ -16,20 +16,39 @@ public class GameState {
     public static final String[] LANGUAGES = { "en", "br", "zh", "cz", "nl", "fr", "de", "hu", "id", "pl", "se" };
     public static final String[] GAME_MODES = { "normal", "hard" };
 
-    private Map<GameKey, Variable> vars;
+    private Map<Key, Variable> vars;
 
     public GameState() {
         this(INIT_GAME);
+        checkVariables();
     }
 
     public GameState(String saveText) {
         this.vars = CandyGameSaveParser.parse(saveText);
+        checkVariables();
+    }
+
+    public void updateTo(String saveText) {
+        CandyGameSaveParser.parseAndUpdate(saveText, vars);
+        checkVariables();
+    }
+    
+    private void checkVariables() {
+    	Key[] allKeys = Key.values();
+    	for (Key key : allKeys) {
+    		if (vars.get(key) == null) {
+    			throw new RuntimeException("Missing game variable: " + key.name());
+    		}
+    	}
+    	if (allKeys.length < vars.size()) {
+    		System.err.println("Warning: more variables than expected");
+    	}
     }
 
     public StringBinding getStringBinding() {
         return new StringBinding() {
             {
-                for (GameKey key : vars.keySet()) {
+                for (Key key : vars.keySet()) {
                     bind(vars.get(key).stringValueProperty());
                 }
             }
@@ -38,14 +57,13 @@ public class GameState {
             protected String computeValue() {
                 return GameState.this.toString();
             }
-
         };
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (GameKey key : vars.keySet()) {
+        for (Key key : vars.keySet()) {
             sb.append(vars.get(key).toString()).append(',');
         }
         int lastCommaPosition = sb.lastIndexOf(",");
@@ -55,7 +73,7 @@ public class GameState {
         return sb.toString();
     }
 
-    public void set(GameKey key, Variable v) {
+    public void set(Key key, Variable v) {
         Variable old = vars.get(key);
         if (old != null) {
             old.updateTo(v);
@@ -63,53 +81,53 @@ public class GameState {
         vars.put(key, v);
     }
 
-    public Variable getVariable(GameKey key) {
+    public Variable getVariable(Key key) {
         return vars.get(key);
     }
 
-    public BooleanVariable getBooleanVariable(GameKey key) {
+    public BooleanVariable getBooleanVariable(Key key) {
         return (BooleanVariable) vars.get(key);
     }
 
-    public NumberVariable getNumberVariable(GameKey key) {
+    public NumberVariable getNumberVariable(Key key) {
         return (NumberVariable) vars.get(key);
     }
 
-    public String getValue(GameKey key) {
-        return vars.get(key).getAsString();
+    public String getValue(Key key) {
+        return vars.get(key).getStringValue();
     }
 
-    public Set<GameKey> keySet() {
+    public Set<Key> keySet() {
         return vars.keySet();
     }
 
     public void incrementCandies(int amount) {
-        incrementVariable(amount, GameKey.gameCandiesCurrent, GameKey.gameCandiesAccumulated, GameKey.gameCandiesMax);
+        incrementVariable(amount, Key.gameCandiesCurrent, Key.gameCandiesAccumulated, Key.gameCandiesMax);
     }
 
     public void incrementEatenCandies(int amount) {
-        incrementVariable(amount, GameKey.gameCandiesEatenCurrent, GameKey.gameCandiesEatenAccumulated,
-                GameKey.gameCandiesEatenMax, GameKey.gameCandiesAccumulated);
+        incrementVariable(amount, Key.gameCandiesEatenCurrent, Key.gameCandiesEatenAccumulated,
+                Key.gameCandiesEatenMax, Key.gameCandiesAccumulated);
     }
 
     public void incrementThrownCandies(int amount) {
-        incrementVariable(amount, GameKey.gameCandiesThrownCurrent, GameKey.gameCandiesThrownAccumulated,
-                GameKey.gameCandiesThrownMax, GameKey.gameCandiesAccumulated);
+        incrementVariable(amount, Key.gameCandiesThrownCurrent, Key.gameCandiesThrownAccumulated,
+                Key.gameCandiesThrownMax, Key.gameCandiesAccumulated);
     }
 
     public void incrementLollipops(int amount) {
-        incrementVariable(amount, GameKey.gameLollipopsCurrent, GameKey.gameLollipopsAccumulated,
-                GameKey.gameLollipopsMax);
+        incrementVariable(amount, Key.gameLollipopsCurrent, Key.gameLollipopsAccumulated,
+                Key.gameLollipopsMax);
     }
 
     public void incrementChocolateBars(int amount) {
-        incrementVariable(amount, GameKey.gameChocolateBarsCurrent, GameKey.gameChocolateBarsAccumulated,
-                GameKey.gameChocolateBarsMax);
+        incrementVariable(amount, Key.gameChocolateBarsCurrent, Key.gameChocolateBarsAccumulated,
+                Key.gameChocolateBarsMax);
     }
 
     public void incrementPainsAuChocolat(int amount) {
-        incrementVariable(amount, GameKey.gamePainsAuChocolatCurrent, GameKey.gamePainsAuChocolatAccumulated,
-                GameKey.gamePainsAuChocolatMax);
+        incrementVariable(amount, Key.gamePainsAuChocolatCurrent, Key.gamePainsAuChocolatAccumulated,
+                Key.gamePainsAuChocolatMax);
     }
 
     /**
@@ -125,15 +143,15 @@ public class GameState {
      * @param maxKey
      *            The key of the variable representing the max reached value
      */
-    private void incrementVariable(int amount, GameKey currentKey, GameKey accumulatorKey, GameKey maxKey,
-            GameKey... parentAccumulators) {
+    private void incrementVariable(int amount, Key currentKey, Key accumulatorKey, Key maxKey,
+            Key... parentAccumulators) {
         long newCurrent = getNumberVariable(currentKey).increment(amount);
         NumberVariable max = getNumberVariable(maxKey);
-        if (newCurrent > max.getAsLong()) {
-            max.set(newCurrent);
+        if (newCurrent > max.getLongValue()) {
+            max.setLongValue(newCurrent);
         }
         getNumberVariable(accumulatorKey).increment(amount);
-        for (GameKey accKey : parentAccumulators) {
+        for (Key accKey : parentAccumulators) {
             getNumberVariable(accKey).increment(amount);
         }
     }
