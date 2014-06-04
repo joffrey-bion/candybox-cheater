@@ -21,7 +21,6 @@ public class Variable {
         this.type = type;
         this.name = name;
         this.stringValue = new SimpleStringProperty(value);
-        getKey(); // variable existence check
     }
 
     public static Variable create(String type, String name, String value) {

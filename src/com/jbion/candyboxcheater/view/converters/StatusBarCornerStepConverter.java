@@ -1,4 +1,4 @@
-package com.jbion.candyboxcheater.game.converters;
+package com.jbion.candyboxcheater.view.converters;
 
 public class StatusBarCornerStepConverter extends NumberToStringMapping {
 

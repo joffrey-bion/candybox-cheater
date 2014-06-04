@@ -1,4 +1,4 @@
-package com.jbion.candyboxcheater.game.converters;
+package com.jbion.candyboxcheater.view.converters;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;

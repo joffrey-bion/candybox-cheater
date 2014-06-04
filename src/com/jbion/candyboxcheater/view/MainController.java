@@ -22,11 +22,11 @@ import javafx.util.StringConverter;
 
 import com.jbion.candyboxcheater.game.GameState;
 import com.jbion.candyboxcheater.game.Key;
-import com.jbion.candyboxcheater.game.converters.CarpetStepConverter;
-import com.jbion.candyboxcheater.game.converters.CupboardStepConverter;
-import com.jbion.candyboxcheater.game.converters.LanguageConverter;
-import com.jbion.candyboxcheater.game.converters.StatusBarCornerStepConverter;
 import com.jbion.candyboxcheater.game.variables.NumberVariable;
+import com.jbion.candyboxcheater.view.converters.CarpetStepConverter;
+import com.jbion.candyboxcheater.view.converters.CupboardStepConverter;
+import com.jbion.candyboxcheater.view.converters.LanguageConverter;
+import com.jbion.candyboxcheater.view.converters.StatusBarCornerStepConverter;
 
 public class MainController implements Initializable {
 
@@ -112,6 +112,8 @@ public class MainController implements Initializable {
 	private ChoiceBox<String> gameLanguage;
 	@FXML
 	private ChoiceBox<String> gameGameMode;
+	@FXML
+	private ChoiceBox<String> statusBarUnlocked;
 	@FXML
 	private ChoiceBox<String> statusBarCornerStep;
 	@FXML

@@ -1,5 +1,9 @@
 package com.jbion.candyboxcheater.game;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public enum Key {
 	candiesThrownGotChocolateBar,
 	candyBoxBoxOpened,
@@ -211,4 +215,14 @@ public enum Key {
 	gameGlovesSelected,
 	gameBootsSelected,
 	gameGameMode;
+	
+	private List<Key> controlledKeys;
+	
+	private Key(Key... controlledKeys) {
+		this.controlledKeys = Arrays.asList(controlledKeys);
+	}
+	
+	public List<Key> getControlledKeys() {
+		return controlledKeys;
+	}
 }

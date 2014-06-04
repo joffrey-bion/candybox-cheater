@@ -20,29 +20,27 @@ public class GameState {
 
     public GameState() {
         this(INIT_GAME);
-        checkVariables();
     }
 
     public GameState(String saveText) {
         this.vars = CandyGameSaveParser.parse(saveText);
-        checkVariables();
     }
 
     public void updateTo(String saveText) {
         CandyGameSaveParser.parseAndUpdate(saveText, vars);
-        checkVariables();
     }
-    
-    private void checkVariables() {
-    	Key[] allKeys = Key.values();
-    	for (Key key : allKeys) {
-    		if (vars.get(key) == null) {
-    			throw new RuntimeException("Missing game variable: " + key.name());
-    		}
-    	}
-    	if (allKeys.length < vars.size()) {
-    		System.err.println("Warning: more variables than expected");
-    	}
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Key key : vars.keySet()) {
+            sb.append(vars.get(key).toString()).append(',');
+        }
+        int lastCommaPosition = sb.lastIndexOf(",");
+        if (lastCommaPosition >= 0) {
+            sb.deleteCharAt(lastCommaPosition);
+        }
+        return sb.toString();
     }
 
     public StringBinding getStringBinding() {
@@ -58,19 +56,6 @@ public class GameState {
                 return GameState.this.toString();
             }
         };
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (Key key : vars.keySet()) {
-            sb.append(vars.get(key).toString()).append(',');
-        }
-        int lastCommaPosition = sb.lastIndexOf(",");
-        if (lastCommaPosition >= 0) {
-            sb.deleteCharAt(lastCommaPosition);
-        }
-        return sb.toString();
     }
 
     public void set(Key key, Variable v) {
