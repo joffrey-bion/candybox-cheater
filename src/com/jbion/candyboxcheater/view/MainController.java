@@ -229,7 +229,7 @@ public class MainController implements Initializable {
 	}
 
 	@FXML
-	private void addCandies(ActionEvent event) {
+	private void addCandies(@SuppressWarnings("unused") ActionEvent event) {
 		try {
 			gameState.incrementCandies(Integer.parseInt(candiesAddField.getText()));
 		} catch (NumberFormatException e) {
@@ -238,7 +238,7 @@ public class MainController implements Initializable {
 	}
 
 	@FXML
-	private void addEatenCandies(ActionEvent event) {
+	private void addEatenCandies(@SuppressWarnings("unused") ActionEvent event) {
 		try {
 			gameState.incrementEatenCandies(Integer.parseInt(eatenCandiesAddField.getText()));
 		} catch (NumberFormatException e) {
@@ -247,7 +247,7 @@ public class MainController implements Initializable {
 	}
 
 	@FXML
-	private void addThrownCandies(ActionEvent event) {
+	private void addThrownCandies(@SuppressWarnings("unused") ActionEvent event) {
 		try {
 			gameState.incrementThrownCandies(Integer.parseInt(thrownCandiesAddField.getText()));
 		} catch (NumberFormatException e) {
@@ -256,7 +256,7 @@ public class MainController implements Initializable {
 	}
 
 	@FXML
-	private void addLollipops(ActionEvent event) {
+	private void addLollipops(@SuppressWarnings("unused") ActionEvent event) {
 		try {
 			gameState.incrementLollipops(Integer.parseInt(lollipopsAddField.getText()));
 		} catch (NumberFormatException e) {
@@ -265,7 +265,7 @@ public class MainController implements Initializable {
 	}
 
 	@FXML
-	private void addChocolateBars(ActionEvent event) {
+	private void addChocolateBars(@SuppressWarnings("unused") ActionEvent event) {
 		try {
 			gameState.incrementChocolateBars(Integer.parseInt(chocolateBarsAddField.getText()));
 		} catch (NumberFormatException e) {
@@ -274,7 +274,7 @@ public class MainController implements Initializable {
 	}
 
 	@FXML
-	private void addPainsAuChocolat(ActionEvent event) {
+	private void addPainsAuChocolat(@SuppressWarnings("unused") ActionEvent event) {
 		try {
 			gameState.incrementPainsAuChocolat(Integer.parseInt(painsAuChocolatAddField.getText()));
 		} catch (NumberFormatException e) {
@@ -283,14 +283,14 @@ public class MainController implements Initializable {
 	}
 
 	@FXML
-	private void copyToClipboard(ActionEvent event) {
+	private void copyToClipboard(@SuppressWarnings("unused") ActionEvent event) {
 		ClipboardContent content = new ClipboardContent();
 		content.putString(rawText.getText());
 		Clipboard.getSystemClipboard().setContent(content);
 	}
 
 	@FXML
-	private void parseSaveText(ActionEvent event) {
+	private void parseSaveText(@SuppressWarnings("unused") ActionEvent event) {
 		String saveText = rawText.getText();
 		gameState.updateTo(saveText);
 	}
