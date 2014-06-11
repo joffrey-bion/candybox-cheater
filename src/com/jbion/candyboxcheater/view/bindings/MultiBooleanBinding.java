@@ -1,7 +1,7 @@
 package com.jbion.candyboxcheater.view.bindings;
 
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.LongProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
@@ -10,10 +10,10 @@ import com.jbion.candyboxcheater.game.Key;
 
 public class MultiBooleanBinding {
 
-	private final IntegerProperty numberProperty;
+	private final LongProperty numberProperty;
 	private final BooleanProperty[] booleanProperties;
 
-	public static MultiBooleanBinding createMultiBooleanBinding(GameState state, IntegerProperty numberProperty, Key... booleanKeys) {
+	public static MultiBooleanBinding createMultiBooleanBinding(GameState state, LongProperty numberProperty, Key... booleanKeys) {
 		BooleanProperty[] booleanProperties = new BooleanProperty[booleanKeys.length];
 		for (int i = 0; i < booleanProperties.length; i++) {
 			booleanProperties[i] = state.getBooleanVariable(booleanKeys[i]).boolValueProperty();
@@ -21,10 +21,10 @@ public class MultiBooleanBinding {
 		return new MultiBooleanBinding(numberProperty, booleanProperties);
 	}
 
-	public MultiBooleanBinding(IntegerProperty numberProperty, BooleanProperty... booleanProps) {
+	public MultiBooleanBinding(LongProperty numberProperty, BooleanProperty... booleanProps) {
 		this.numberProperty = numberProperty;
 		this.booleanProperties = booleanProps;
-		
+		updateNumber();
 		numberProperty.addListener(new MultiBooleanNumberChangeListener(this));
 		for (int i = 0; i < booleanProperties.length; i++) {
 			booleanProperties[i].addListener(new NumberedBooleanChangeListener(this));
@@ -40,7 +40,7 @@ public class MultiBooleanBinding {
 	}
 
 	void updateBooleans() {
-		int value = numberProperty.get();
+		int value = (int) numberProperty.get();
 		for (int i = 0; i < booleanProperties.length; i++) {
 			booleanProperties[i].set(i < value);
 		}

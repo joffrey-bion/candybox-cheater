@@ -168,18 +168,23 @@
                               <GridPane hgap="10.0" vgap="5.0">
                                  <children>
                                     <Label text="Shop" GridPane.valignment="TOP" />
-                                    <Label text="Forge" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-                                    <Label text="Right-most House" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-                                    <Label text="4th House" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                                    <CheckBox fx:id="cellarDone" mnemonicParsing="false" text="Cellar done" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-                                    <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                                    <CheckBox fx:id="forgeFoundLollipop" mnemonicParsing="false" text="Lollipop picked up" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                                    <Label text="(unlocks the main map)" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                    <ChoiceBox fx:id="fourthHouseCupboardStep" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                                    <Label text="Cupboard:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                    <Label text="Carpet:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                    <ChoiceBox fx:id="fourthHouseCarpetStep" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                                    <CheckBox fx:id="fourthHouseFoundLollipopOnCupboard" mnemonicParsing="false" text="Lollipop picked up" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                                    <Label text="Forge" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                    <Label text="5th House" GridPane.rowIndex="11" GridPane.valignment="TOP" />
+                                    <Label text="4th House" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                                    <CheckBox fx:id="cellarDone" mnemonicParsing="false" text="Cellar done (unlocks main map)" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="11" />
+                                    <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                                    <CheckBox fx:id="forgeFoundLollipop" mnemonicParsing="false" text="Lollipop picked up on fireplace" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="7" />
+                                    <ChoiceBox fx:id="fourthHouseCupboardStep" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                    <Label text="Cupboard:" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                    <Label text="Carpet:" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                    <ChoiceBox fx:id="fourthHouseCarpetStep" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                                    <CheckBox fx:id="fourthHouseFoundLollipopOnCupboard" mnemonicParsing="false" text="Lollipop picked up on cupboard" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8" />
+                                    <CheckBox fx:id="secondHouseLollipop1Bought" mnemonicParsing="false" text="Lollipop 1 bought (60c)" GridPane.columnIndex="1" GridPane.columnSpan="3" />
+                                    <CheckBox fx:id="secondHouseLollipop2Bought" mnemonicParsing="false" text="Lollipop 2 bought (60c)" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="secondHouseLollipop3Bought" mnemonicParsing="false" text="Lollipop 3 bought (60c)" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                                    <CheckBox fx:id="secondHouseTimeRingBought" mnemonicParsing="false" text="Time ring bought (500c)" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+                                    <CheckBox fx:id="secondHouseMerchantHatBought" mnemonicParsing="false" text="Merchant hat bought (1.000.000c)" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="5" />
+                                    <CheckBox fx:id="secondHouseChocolateBarBought" mnemonicParsing="false" text="Chocolate bar bought (800c)" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
                                  </children>
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" />
@@ -188,13 +193,22 @@
                                     <ColumnConstraints hgrow="SOMETIMES" />
                                  </columnConstraints>
                                  <rowConstraints>
-                                    <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" valignment="CENTER" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
                                     <RowConstraints vgrow="SOMETIMES" />
                                     <RowConstraints vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
                                     <RowConstraints vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -205,6 +219,91 @@
                      </children>
                   </AnchorPane>
                </content>
+            </Tab>
+            <Tab text="Inventory">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane layoutX="220.0" layoutY="75.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <content>
+                              <GridPane hgap="10.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Weapon" />
+                                    <Label text="Gloves" GridPane.rowIndex="10" />
+                                    <Label text="Boots" GridPane.rowIndex="13" />
+                                    <Label text="Head" GridPane.rowIndex="16" />
+                                    <Label text="Chest" GridPane.rowIndex="21" />
+                                    <CheckBox mnemonicParsing="false" text="Wooden sword" GridPane.columnIndex="2" />
+                                    <CheckBox mnemonicParsing="false" text="Leather Gloves" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                                    <CheckBox mnemonicParsing="false" text="Leather Boots" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                                    <CheckBox mnemonicParsing="false" text="Octopus King's Crown" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+                                    <CheckBox mnemonicParsing="false" text="Lightweight Body Armor" GridPane.columnIndex="2" GridPane.rowIndex="21" />
+                                    <CheckBox mnemonicParsing="false" text="Iron Axe" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <CheckBox mnemonicParsing="false" text="Polished Silver Sword" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <CheckBox mnemonicParsing="false" text="Red Enchanted Gloves" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                                    <CheckBox mnemonicParsing="false" text="Pink Enchanted Gloves" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                                    <CheckBox mnemonicParsing="false" text="Enchanted Lightweight Body Armor" GridPane.columnIndex="2" GridPane.rowIndex="22" />
+                                    <CheckBox mnemonicParsing="false" text="Rocket Boots" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+                                    <CheckBox mnemonicParsing="false" text="Octopus King's Crown With Jaspers" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                                    <CheckBox mnemonicParsing="false" text="Knight Body Armor" GridPane.columnIndex="2" GridPane.rowIndex="23" />
+                                    <CheckBox mnemonicParsing="false" text="Enchanted Knight Body Armor" GridPane.columnIndex="2" GridPane.rowIndex="24" />
+                                    <CheckBox mnemonicParsing="false" text="Merchant's Hat" GridPane.columnIndex="2" GridPane.rowIndex="20" />
+                                    <CheckBox mnemonicParsing="false" text="Sorceress's Hat" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+                                    <CheckBox mnemonicParsing="false" text="Octopus King's Crown With Obsidian" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+                                    <CheckBox mnemonicParsing="false" text="Boots of introspection" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+                                    <CheckBox mnemonicParsing="false" text="Monkey Wizard Staff" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <CheckBox mnemonicParsing="false" text="Enchanted Monkey Wizard Staff" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                    <CheckBox mnemonicParsing="false" text="Scythe" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                    <CheckBox mnemonicParsing="false" text="Tribal Spear" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                    <CheckBox mnemonicParsing="false" text="Summoning Tribal Spear" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                    <CheckBox mnemonicParsing="false" text="Giant Spoon Of Doom" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                    <CheckBox mnemonicParsing="false" text="Spoon" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                 </children>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+              </content>
             </Tab>
             <Tab text="Miscellaneous">
               <content>
@@ -241,7 +340,7 @@
                                     <Label text="Game mode" GridPane.rowIndex="3" />
                                     <ChoiceBox fx:id="gameGameMode" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                     <Label text="Status bar level" />
-                                    <ChoiceBox fx:id="statusBarUnlocked" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ChoiceBox fx:id="statusBarLevel" prefWidth="150.0" GridPane.columnIndex="1" />
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

@@ -4,7 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.Property;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,11 +23,12 @@ import javafx.util.StringConverter;
 
 import com.jbion.candyboxcheater.game.GameState;
 import com.jbion.candyboxcheater.game.Key;
-import com.jbion.candyboxcheater.game.variables.NumberVariable;
+import com.jbion.candyboxcheater.view.bindings.MultiBooleanBinding;
 import com.jbion.candyboxcheater.view.converters.CarpetStepConverter;
 import com.jbion.candyboxcheater.view.converters.CupboardStepConverter;
 import com.jbion.candyboxcheater.view.converters.LanguageConverter;
 import com.jbion.candyboxcheater.view.converters.StatusBarCornerStepConverter;
+import com.jbion.candyboxcheater.view.converters.StatusBarLevelConverter;
 
 public class MainController implements Initializable {
 
@@ -93,16 +95,35 @@ public class MainController implements Initializable {
 	 * VILLAGE TAB
 	 */
 
+	// shop
+	@FXML
+	private CheckBox secondHouseLollipop1Bought;
+	@FXML
+	private CheckBox secondHouseLollipop2Bought;
+	@FXML
+	private CheckBox secondHouseLollipop3Bought;
+	@FXML
+	private CheckBox secondHouseChocolateBarBought;
+	@FXML
+	private CheckBox secondHouseTimeRingBought;
+	
+	// forge
+	@FXML
+	private CheckBox secondHouseMerchantHatBought;
 	@FXML
 	private CheckBox forgeFoundLollipop;
-	@FXML
-	private CheckBox cellarDone;
+	
+	// 4th house
 	@FXML
 	private CheckBox fourthHouseFoundLollipopOnCupboard;
 	@FXML
 	private ChoiceBox<String> fourthHouseCupboardStep;
 	@FXML
 	private ChoiceBox<String> fourthHouseCarpetStep;
+	
+	// 5th house
+	@FXML
+	private CheckBox cellarDone;
 
 	/*
 	 * MISCELLANEOUS TAB
@@ -113,7 +134,7 @@ public class MainController implements Initializable {
 	@FXML
 	private ChoiceBox<String> gameGameMode;
 	@FXML
-	private ChoiceBox<String> statusBarUnlocked;
+	private ChoiceBox<String> statusBarLevel;
 	@FXML
 	private ChoiceBox<String> statusBarCornerStep;
 	@FXML
@@ -189,9 +210,16 @@ public class MainController implements Initializable {
 		gameLanguage.setItems(FXCollections.observableArrayList(languageConverter.getNames()));
 		bindBoxToStrings(gameLanguage, Key.gameLanguage, languageConverter);
 
-		StatusBarCornerStepConverter statusBarConverter = new StatusBarCornerStepConverter();
-		statusBarCornerStep.setItems(FXCollections.observableArrayList(statusBarConverter.getNames()));
-		bindBoxToNumbers(statusBarCornerStep, Key.statusBarCornerStep, statusBarConverter);
+		StatusBarCornerStepConverter statusBarCornerConverter = new StatusBarCornerStepConverter();
+		statusBarCornerStep.setItems(FXCollections.observableArrayList(statusBarCornerConverter.getNames()));
+		bindBoxToNumbers(statusBarCornerStep, Key.statusBarCornerStep, statusBarCornerConverter);
+
+		StatusBarLevelConverter statusBarLevelConverter = new StatusBarLevelConverter();
+		statusBarLevel.setItems(FXCollections.observableArrayList(statusBarLevelConverter.getNames()));
+		LongProperty statusBarLevelProperty = new SimpleLongProperty();
+		Key[] statusBarKeys = {Key.statusBarUnlocked, Key.statusBarUnlockedCfg, Key.statusBarUnlockedSave, Key.statusBarUnlockedHealthBar, Key.statusBarUnlockedMap};
+		MultiBooleanBinding.createMultiBooleanBinding(gameState, statusBarLevelProperty, statusBarKeys);
+		bindBoxToNumbers(statusBarLevel, statusBarLevelProperty, statusBarLevelConverter);
 
 		gameGameMode.setItems(FXCollections.observableArrayList(GameState.GAME_MODES));
 		
@@ -216,16 +244,13 @@ public class MainController implements Initializable {
 				converter);
 	}
 
-	private void bindBoxToNumbers(ChoiceBox<String> choiceBox, Key key, StringConverter<Number> converter) {
-		NumberVariable var = gameState.getNumberVariable(key);
-		Long value = var.getLongValue();
-		String convertValue = converter.toString(value);
-		System.out.println("Value:  " + value + " -> " + convertValue + "  " + var.getKey());
-		choiceBox.setValue(convertValue);
-		Property<String> strProp = choiceBox.valueProperty();
-		Property<Number> longProp = gameState.getNumberVariable(key).longValueProperty();
-		Bindings.bindBidirectional(strProp, longProp, converter);
-		System.out.println();
+	private void bindBoxToNumbers(ChoiceBox<String> choiceBox, Key numberVariableKey, StringConverter<Number> converter) {
+		bindBoxToNumbers(choiceBox, gameState.getNumberVariable(numberVariableKey).longValueProperty(), converter);
+	}
+
+	private static void bindBoxToNumbers(ChoiceBox<String> choiceBox, LongProperty property, StringConverter<Number> converter) {
+		choiceBox.setValue(converter.toString(property.get()));
+		Bindings.bindBidirectional(choiceBox.valueProperty(), property, converter);
 	}
 
 	@FXML
