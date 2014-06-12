@@ -1,4 +1,4 @@
-package com.jbion.candyboxcheater.view;
+package com.jbion.candyboxcheater.view.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,16 +20,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-import javafx.util.StringConverter;
 
 import com.jbion.candyboxcheater.game.GameState;
 import com.jbion.candyboxcheater.game.Key;
 import com.jbion.candyboxcheater.view.bindings.MultiBooleanBinding;
 import com.jbion.candyboxcheater.view.converters.CarpetStepConverter;
 import com.jbion.candyboxcheater.view.converters.CupboardStepConverter;
+import com.jbion.candyboxcheater.view.converters.ForgeWeaponBoughtConverter;
 import com.jbion.candyboxcheater.view.converters.LanguageConverter;
 import com.jbion.candyboxcheater.view.converters.StatusBarCornerStepConverter;
 import com.jbion.candyboxcheater.view.converters.StatusBarLevelConverter;
+import com.jbion.candyboxcheater.view.converters.StringMapping;
 
 public class MainController implements Initializable {
 
@@ -106,13 +108,15 @@ public class MainController implements Initializable {
 	private CheckBox secondHouseChocolateBarBought;
 	@FXML
 	private CheckBox secondHouseTimeRingBought;
-	
-	// forge
 	@FXML
 	private CheckBox secondHouseMerchantHatBought;
+
+	// forge
 	@FXML
 	private CheckBox forgeFoundLollipop;
-	
+	@FXML
+	private ChoiceBox<String> forgeWeaponBought;
+
 	// 4th house
 	@FXML
 	private CheckBox fourthHouseFoundLollipopOnCupboard;
@@ -120,7 +124,7 @@ public class MainController implements Initializable {
 	private ChoiceBox<String> fourthHouseCupboardStep;
 	@FXML
 	private ChoiceBox<String> fourthHouseCarpetStep;
-	
+
 	// 5th house
 	@FXML
 	private CheckBox cellarDone;
@@ -191,38 +195,33 @@ public class MainController implements Initializable {
 		bind(gamePainsAuChocolatAccumulated, Key.gamePainsAuChocolatAccumulated);
 		bind(gamePainsAuChocolatMax, Key.gamePainsAuChocolatMax);
 
+		bind(secondHouseLollipop1Bought, Key.secondHouseLollipop1Bought);
+		bind(secondHouseLollipop2Bought, Key.secondHouseLollipop2Bought);
+		bind(secondHouseLollipop3Bought, Key.secondHouseLollipop3Bought);
+		bind(secondHouseChocolateBarBought, Key.secondHouseChocolateBarBought);
+		bind(secondHouseTimeRingBought, Key.secondHouseTimeRingBought);
+		bind(secondHouseMerchantHatBought, Key.secondHouseMerchantHatBought);
+
 		bind(forgeFoundLollipop, Key.forgeFoundLollipop);
-		bind(fourthHouseFoundLollipopOnCupboard, Key.fourthHouseFoundLollipopOnCupboard);		
+		bind(fourthHouseFoundLollipopOnCupboard, Key.fourthHouseFoundLollipopOnCupboard);
 		bind(cellarDone, Key.cellarDone);
-		bind(gameGameMode, Key.gameGameMode);
+		bind(gameGameMode, Key.gameGameMode, GameState.GAME_MODES);
 		bind(gameDebug, Key.gameDebug);
 		bind(gameInvertedColors, Key.gameInvertedColors);
 
-		CupboardStepConverter cupboardStepConverter = new CupboardStepConverter();
-		fourthHouseCupboardStep.setItems(FXCollections.observableArrayList(cupboardStepConverter.getNames()));
-		bindBoxToNumbers(fourthHouseCupboardStep, Key.fourthHouseCupboardStep, cupboardStepConverter);
+		bindBoxToNumbers(fourthHouseCupboardStep, Key.fourthHouseCupboardStep, new CupboardStepConverter());
+		bindBoxToNumbers(fourthHouseCarpetStep, Key.fourthHouseCarpetStep, new CarpetStepConverter());
+		bindBoxToNumbers(statusBarCornerStep, Key.statusBarCornerStep, new StatusBarCornerStepConverter());
+		bind(gameLanguage, Key.gameLanguage, new LanguageConverter());
 
-		CarpetStepConverter carpetStepConverter = new CarpetStepConverter();
-		fourthHouseCarpetStep.setItems(FXCollections.observableArrayList(carpetStepConverter.getNames()));
-		bindBoxToNumbers(fourthHouseCarpetStep, Key.fourthHouseCarpetStep, carpetStepConverter);
+		Key[] statusBarLevelKeys = { Key.statusBarUnlocked, Key.statusBarUnlockedCfg, Key.statusBarUnlockedSave,
+				Key.statusBarUnlockedHealthBar, Key.statusBarUnlockedMap };
+		bindBoxToMultipleBooleans(statusBarLevel, new StatusBarLevelConverter(), statusBarLevelKeys);
 
-		LanguageConverter languageConverter = new LanguageConverter();
-		gameLanguage.setItems(FXCollections.observableArrayList(languageConverter.getNames()));
-		bindBoxToStrings(gameLanguage, Key.gameLanguage, languageConverter);
+		Key[] forgeWeaponBoughtKeys = { Key.forgeBoughtWoodenSword, Key.forgeBoughtIronAxe,
+				Key.forgeBoughtPolishedSilverSword, Key.forgeBoughtLightweightBodyArmour, Key.forgeBoughtScythe };
+		bindBoxToMultipleBooleans(forgeWeaponBought, new ForgeWeaponBoughtConverter(), forgeWeaponBoughtKeys);
 
-		StatusBarCornerStepConverter statusBarCornerConverter = new StatusBarCornerStepConverter();
-		statusBarCornerStep.setItems(FXCollections.observableArrayList(statusBarCornerConverter.getNames()));
-		bindBoxToNumbers(statusBarCornerStep, Key.statusBarCornerStep, statusBarCornerConverter);
-
-		StatusBarLevelConverter statusBarLevelConverter = new StatusBarLevelConverter();
-		statusBarLevel.setItems(FXCollections.observableArrayList(statusBarLevelConverter.getNames()));
-		LongProperty statusBarLevelProperty = new SimpleLongProperty();
-		Key[] statusBarKeys = {Key.statusBarUnlocked, Key.statusBarUnlockedCfg, Key.statusBarUnlockedSave, Key.statusBarUnlockedHealthBar, Key.statusBarUnlockedMap};
-		MultiBooleanBinding.createMultiBooleanBinding(gameState, statusBarLevelProperty, statusBarKeys);
-		bindBoxToNumbers(statusBarLevel, statusBarLevelProperty, statusBarLevelConverter);
-
-		gameGameMode.setItems(FXCollections.observableArrayList(GameState.GAME_MODES));
-		
 		rawText.setText(gameState.toString());
 		gameState.getStringBinding().addListener((observable, oldValue, newValue) -> rawText.setText(newValue));
 	}
@@ -231,26 +230,37 @@ public class MainController implements Initializable {
 		label.textProperty().bind(gameState.getVariable(key).stringValueProperty());
 	}
 
-	private void bind(CheckBox checkBox, Key key) {
-		checkBox.selectedProperty().bindBidirectional(gameState.getBooleanVariable(key).boolValueProperty());
+	private void bind(CheckBox checkBox, Key booleanVariableKey) {
+		checkBox.selectedProperty().bindBidirectional(
+				gameState.getBooleanVariable(booleanVariableKey).boolValueProperty());
 	}
 
-	private void bind(ChoiceBox<String> choiceBox, Key key) {
+	private void bind(ChoiceBox<String> choiceBox, Key key, String... items) {
+		choiceBox.setItems(FXCollections.observableArrayList(items));
 		choiceBox.valueProperty().bindBidirectional(gameState.getVariable(key).stringValueProperty());
 	}
 
-	private void bindBoxToStrings(ChoiceBox<String> choiceBox, Key key, StringConverter<String> converter) {
-		Bindings.bindBidirectional(choiceBox.valueProperty(), gameState.getVariable(key).stringValueProperty(),
-				converter);
-	}
-
-	private void bindBoxToNumbers(ChoiceBox<String> choiceBox, Key numberVariableKey, StringConverter<Number> converter) {
-		bindBoxToNumbers(choiceBox, gameState.getNumberVariable(numberVariableKey).longValueProperty(), converter);
-	}
-
-	private static void bindBoxToNumbers(ChoiceBox<String> choiceBox, LongProperty property, StringConverter<Number> converter) {
+	private void bind(ChoiceBox<String> choiceBox, Key stringVariableKey, StringMapping<String> converter) {
+		choiceBox.setItems(FXCollections.observableArrayList(converter.getNames()));
+		StringProperty property = gameState.getVariable(stringVariableKey).stringValueProperty();
 		choiceBox.setValue(converter.toString(property.get()));
 		Bindings.bindBidirectional(choiceBox.valueProperty(), property, converter);
+	}
+
+	private void bindBoxToNumbers(ChoiceBox<String> choiceBox, Key numberVariableKey, StringMapping<Number> converter) {
+		choiceBox.setItems(FXCollections.observableArrayList(converter.getNames()));
+		LongProperty property = gameState.getNumberVariable(numberVariableKey).longValueProperty();
+		choiceBox.setValue(converter.toString(property.get()));
+		Bindings.bindBidirectional(choiceBox.valueProperty(), property, converter);
+	}
+
+	private void bindBoxToMultipleBooleans(ChoiceBox<String> choiceBox, StringMapping<Number> converter,
+			Key... booleanKeys) {
+		choiceBox.setItems(FXCollections.observableArrayList(converter.getNames()));
+		LongProperty tempProperty = new SimpleLongProperty();
+		MultiBooleanBinding.createMultiBooleanBinding(gameState, tempProperty, booleanKeys);
+		choiceBox.setValue(converter.toString(tempProperty.get()));
+		Bindings.bindBidirectional(choiceBox.valueProperty(), tempProperty, converter);
 	}
 
 	@FXML
