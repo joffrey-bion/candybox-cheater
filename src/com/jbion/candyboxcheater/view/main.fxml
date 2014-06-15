@@ -220,7 +220,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Inventory">
+            <Tab text="Equipment">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -229,7 +229,11 @@
                               <GridPane hgap="10.0" vgap="5.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
-                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
                                     <ColumnConstraints hgrow="SOMETIMES" />
                                 </columnConstraints>
                                 <rowConstraints>
@@ -262,41 +266,45 @@
                                     <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </padding>
                                  <children>
+                                    <Label text="Gloves" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                    <Label text="Boots" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                                    <Label text="Head" GridPane.columnIndex="2" />
+                                    <Label text="Chest" GridPane.rowIndex="12" />
+                                    <CheckBox fx:id="eqItemWeaponWoodenSword" mnemonicParsing="false" text="Wooden sword" GridPane.columnIndex="1" />
+                                    <CheckBox fx:id="eqItemGlovesLeatherGloves" mnemonicParsing="false" text="Leather Gloves" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                    <CheckBox fx:id="eqItemBootsLeatherBoots" mnemonicParsing="false" text="Leather Boots" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                                    <CheckBox fx:id="eqItemHatOctopusKingCrown" mnemonicParsing="false" text="Octopus King's Crown" GridPane.columnIndex="3" />
+                                    <CheckBox fx:id="eqItemBodyArmoursLightweightBodyArmour" mnemonicParsing="false" text="Lightweight Body Armor" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                    <CheckBox fx:id="eqItemWeaponIronAxe" mnemonicParsing="false" text="Iron Axe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="eqItemWeaponPolishedSilverSword" mnemonicParsing="false" text="Polished Silver Sword" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <CheckBox fx:id="eqItemGlovesRedEnchantedGloves" mnemonicParsing="false" text="Red Enchanted Gloves" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                                    <CheckBox fx:id="eqItemGlovesPinkEnchantedGloves" mnemonicParsing="false" text="Pink Enchanted Gloves" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                                    <CheckBox fx:id="eqItemBootsRocketBoots" mnemonicParsing="false" text="Rocket Boots" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+                                    <CheckBox fx:id="eqItemHatOctopusKingCrownWithJaspers" mnemonicParsing="false" text="Octopus King's Crown With Jaspers" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="eqItemBodyArmoursKnightBodyArmour" mnemonicParsing="false" text="Knight Body Armor" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                                    <CheckBox fx:id="eqItemBodyArmoursEnchantedKnightBodyArmour" mnemonicParsing="false" text="Enchanted Knight Body Armor" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                                    <CheckBox fx:id="eqItemHatMerchantHat" mnemonicParsing="false" text="Merchant's Hat" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                    <CheckBox fx:id="eqItemHatSorceressHat" mnemonicParsing="false" text="Sorceress's Hat" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <CheckBox fx:id="eqItemHatOctopusKingCrownWithObsidian" mnemonicParsing="false" text="Octopus King's Crown With Obsidian" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <CheckBox fx:id="eqItemBootsBootsOfIntrospection" mnemonicParsing="false" text="Boots of introspection" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+                                    <CheckBox fx:id="eqItemWeaponMonkeyWizardStaff" mnemonicParsing="false" text="Monkey Wizard Staff" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <CheckBox fx:id="eqItemWeaponEnchantedMonkeyWizardStaff" mnemonicParsing="false" text="Enchanted Monkey Wizard Staff" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <CheckBox fx:id="eqItemWeaponScythe" mnemonicParsing="false" text="Scythe" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <CheckBox fx:id="eqItemWeaponTribalSpear" mnemonicParsing="false" text="Tribal Spear" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <CheckBox fx:id="eqItemWeaponSummoningTribalSpear" mnemonicParsing="false" text="Summoning Tribal Spear" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                    <CheckBox fx:id="eqItemWeaponGiantSpoonOfDoom" mnemonicParsing="false" text="Giant Spoon Of Doom" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                    <CheckBox fx:id="eqItemWeaponGiantSpoon" mnemonicParsing="false" text="Giant Spoon" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                    <CheckBox fx:id="eqItemWeaponTrollBludgeon" mnemonicParsing="false" text="Troll Bludgeon" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                     <Label text="Weapon" />
-                                    <Label text="Gloves" GridPane.rowIndex="11" />
-                                    <Label text="Boots" GridPane.rowIndex="14" />
-                                    <Label text="Head" GridPane.rowIndex="17" />
-                                    <Label text="Chest" GridPane.rowIndex="22" />
-                                    <CheckBox fx:id="eqItemWeaponWoodenSword" mnemonicParsing="false" text="Wooden sword" GridPane.columnIndex="2" />
-                                    <CheckBox fx:id="eqItemGlovesLeatherGloves" mnemonicParsing="false" text="Leather Gloves" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-                                    <CheckBox fx:id="eqItemBootsLeatherBoots" mnemonicParsing="false" text="Leather Boots" GridPane.columnIndex="2" GridPane.rowIndex="14" />
-                                    <CheckBox fx:id="eqItemHatOctopusKingCrown" mnemonicParsing="false" text="Octopus King's Crown" GridPane.columnIndex="2" GridPane.rowIndex="17" />
-                                    <CheckBox fx:id="eqItemBodyArmoursLightweightBodyArmour" mnemonicParsing="false" text="Lightweight Body Armor" GridPane.columnIndex="2" GridPane.rowIndex="22" />
-                                    <CheckBox fx:id="eqItemWeaponIronAxe" mnemonicParsing="false" text="Iron Axe" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                    <CheckBox fx:id="eqItemWeaponPolishedSilverSword" mnemonicParsing="false" text="Polished Silver Sword" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                    <CheckBox fx:id="eqItemGlovesRedEnchantedGloves" mnemonicParsing="false" text="Red Enchanted Gloves" GridPane.columnIndex="2" GridPane.rowIndex="12" />
-                                    <CheckBox fx:id="eqItemGlovesPinkEnchantedGloves" mnemonicParsing="false" text="Pink Enchanted Gloves" GridPane.columnIndex="2" GridPane.rowIndex="13" />
-                                    <CheckBox fx:id="eqItemBootsRocketBoots" mnemonicParsing="false" text="Rocket Boots" GridPane.columnIndex="2" GridPane.rowIndex="15" />
-                                    <CheckBox fx:id="eqItemHatOctopusKingCrownWithJaspers" mnemonicParsing="false" text="Octopus King's Crown With Jaspers" GridPane.columnIndex="2" GridPane.rowIndex="18" />
-                                    <CheckBox fx:id="eqItemBodyArmoursKnightBodyArmour" mnemonicParsing="false" text="Knight Body Armor" GridPane.columnIndex="2" GridPane.rowIndex="23" />
-                                    <CheckBox fx:id="eqItemBodyArmoursEnchantedKnightBodyArmour" mnemonicParsing="false" text="Enchanted Knight Body Armor" GridPane.columnIndex="2" GridPane.rowIndex="24" />
-                                    <CheckBox fx:id="eqItemHatMerchantHat" mnemonicParsing="false" text="Merchant's Hat" GridPane.columnIndex="2" GridPane.rowIndex="21" />
-                                    <CheckBox fx:id="eqItemHatSorceressHat" mnemonicParsing="false" text="Sorceress's Hat" GridPane.columnIndex="2" GridPane.rowIndex="20" />
-                                    <CheckBox fx:id="eqItemHatOctopusKingCrownWithObsidian" mnemonicParsing="false" text="Octopus King's Crown With Obsidian" GridPane.columnIndex="2" GridPane.rowIndex="19" />
-                                    <CheckBox fx:id="eqItemBootsBootsOfIntrospection" mnemonicParsing="false" text="Boots of introspection" GridPane.columnIndex="2" GridPane.rowIndex="16" />
-                                    <CheckBox fx:id="eqItemWeaponMonkeyWizardStaff" mnemonicParsing="false" text="Monkey Wizard Staff" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                    <CheckBox fx:id="eqItemWeaponEnchantedMonkeyWizardStaff" mnemonicParsing="false" text="Enchanted Monkey Wizard Staff" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                                    <CheckBox fx:id="eqItemWeaponScythe" mnemonicParsing="false" text="Scythe" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                                    <CheckBox fx:id="eqItemWeaponTribalSpear" mnemonicParsing="false" text="Tribal Spear" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                                    <CheckBox fx:id="eqItemWeaponSummoningTribalSpear" mnemonicParsing="false" text="Summoning Tribal Spear" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                                    <CheckBox fx:id="eqItemWeaponGiantSpoonOfDoom" mnemonicParsing="false" text="Giant Spoon Of Doom" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-                                    <CheckBox fx:id="eqItemWeaponGiantSpoon" mnemonicParsing="false" text="Giant Spoon" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                                    <CheckBox fx:id="eqItemWeaponTrollBludgeon" mnemonicParsing="false" text="Troll Bludgeon" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                                  </children>
                               </GridPane>
                            </content>
@@ -370,6 +378,11 @@
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Inventory">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
         </tabs>
          <BorderPane.margin>
             <Insets />

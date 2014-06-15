@@ -2,11 +2,11 @@ package com.jbion.candyboxcheater.view.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.IntConsumer;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -312,7 +312,10 @@ public class MainController implements Initializable {
 		
 		// save text binding
 		rawText.setText(gameState.toString());
-		gameState.getStringBinding().addListener((observable, oldValue, newValue) -> rawText.setText(newValue));
+		gameState.getStringBinding().addListener((observable, oldValue, newValue) -> {
+			System.out.println("save's text updated");
+			rawText.setText(newValue);
+		});
 	}
 
 	private void bind(Label label, Key key) {
@@ -362,53 +365,37 @@ public class MainController implements Initializable {
 
 	@FXML
 	private void addCandies(@SuppressWarnings("unused") ActionEvent event) {
-		try {
-			gameState.incrementCandies(Integer.parseInt(candiesAddField.getText()));
-		} catch (NumberFormatException e) {
-			System.err.println("Input error");
-		}
+		consumeValue(gameState::incrementCandies, candiesAddField);
 	}
 
 	@FXML
 	private void addEatenCandies(@SuppressWarnings("unused") ActionEvent event) {
-		try {
-			gameState.incrementEatenCandies(Integer.parseInt(eatenCandiesAddField.getText()));
-		} catch (NumberFormatException e) {
-			System.err.println("Input error");
-		}
+		consumeValue(gameState::incrementEatenCandies, eatenCandiesAddField);
 	}
 
 	@FXML
 	private void addThrownCandies(@SuppressWarnings("unused") ActionEvent event) {
-		try {
-			gameState.incrementThrownCandies(Integer.parseInt(thrownCandiesAddField.getText()));
-		} catch (NumberFormatException e) {
-			System.err.println("Input error");
-		}
+		consumeValue(gameState::incrementThrownCandies, thrownCandiesAddField);
 	}
 
 	@FXML
 	private void addLollipops(@SuppressWarnings("unused") ActionEvent event) {
-		try {
-			gameState.incrementLollipops(Integer.parseInt(lollipopsAddField.getText()));
-		} catch (NumberFormatException e) {
-			System.err.println("Input error");
-		}
+		consumeValue(gameState::incrementLollipops, lollipopsAddField);
 	}
 
 	@FXML
 	private void addChocolateBars(@SuppressWarnings("unused") ActionEvent event) {
-		try {
-			gameState.incrementChocolateBars(Integer.parseInt(chocolateBarsAddField.getText()));
-		} catch (NumberFormatException e) {
-			System.err.println("Input error");
-		}
+		consumeValue(gameState::incrementChocolateBars, chocolateBarsAddField);
 	}
 
 	@FXML
 	private void addPainsAuChocolat(@SuppressWarnings("unused") ActionEvent event) {
+		consumeValue(gameState::incrementPainsAuChocolat, painsAuChocolatAddField);
+	}
+	
+	private static void consumeValue(IntConsumer consumer, TextField intField) {
 		try {
-			gameState.incrementPainsAuChocolat(Integer.parseInt(painsAuChocolatAddField.getText()));
+			consumer.accept(Integer.parseInt(intField.getText()));
 		} catch (NumberFormatException e) {
 			System.err.println("Input error");
 		}
