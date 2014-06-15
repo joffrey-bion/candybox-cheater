@@ -1,5 +1,7 @@
 package com.jbion.candyboxcheater.game.variables;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -15,12 +17,14 @@ public class Variable {
     private String name;
 
     private StringProperty stringValue;
+    private BooleanProperty disabled;
 
     protected Variable(String type, String name, String value) {
         super();
         this.type = type;
         this.name = name;
         this.stringValue = new SimpleStringProperty(value);
+        this.disabled = new SimpleBooleanProperty(false);
     }
 
     public static Variable create(String type, String name, String value) {
@@ -38,6 +42,18 @@ public class Variable {
 
     public Key getKey() {
         return Key.valueOf(name);
+    }
+    
+    public BooleanProperty disabledProperty() {
+    	return disabled;
+    }
+    
+    public void setDisabled(boolean disabled) {
+    	this.disabled.set(disabled);
+    }
+    
+    public boolean getDisabled() {
+    	return disabled.get();
     }
 
     public StringProperty stringValueProperty() {

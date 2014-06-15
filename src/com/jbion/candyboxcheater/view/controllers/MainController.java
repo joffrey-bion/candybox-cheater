@@ -23,6 +23,9 @@ import javafx.scene.input.ClipboardContent;
 
 import com.jbion.candyboxcheater.game.GameState;
 import com.jbion.candyboxcheater.game.Key;
+import com.jbion.candyboxcheater.game.variables.BooleanVariable;
+import com.jbion.candyboxcheater.game.variables.NumberVariable;
+import com.jbion.candyboxcheater.game.variables.Variable;
 import com.jbion.candyboxcheater.view.bindings.MultiBooleanBinding;
 import com.jbion.candyboxcheater.view.converters.CarpetStepConverter;
 import com.jbion.candyboxcheater.view.converters.CupboardStepConverter;
@@ -128,7 +131,62 @@ public class MainController implements Initializable {
 	// 5th house
 	@FXML
 	private CheckBox cellarDone;
+	
+	/*
+	 * Equipement
+	 */
 
+	@FXML
+	private CheckBox eqItemWeaponWoodenSword;
+	@FXML
+	private CheckBox eqItemWeaponIronAxe;
+	@FXML
+	private CheckBox eqItemWeaponPolishedSilverSword;
+	@FXML
+	private CheckBox eqItemWeaponTrollBludgeon;
+	@FXML
+	private CheckBox eqItemWeaponMonkeyWizardStaff;
+	@FXML
+	private CheckBox eqItemWeaponEnchantedMonkeyWizardStaff;
+	@FXML
+	private CheckBox eqItemWeaponTribalSpear;
+	@FXML
+	private CheckBox eqItemWeaponSummoningTribalSpear;
+	@FXML
+	private CheckBox eqItemWeaponGiantSpoon;
+	@FXML
+	private CheckBox eqItemWeaponScythe;
+	@FXML
+	private CheckBox eqItemWeaponGiantSpoonOfDoom;
+	@FXML
+	private CheckBox eqItemHatOctopusKingCrown;
+	@FXML
+	private CheckBox eqItemHatOctopusKingCrownWithJaspers;
+	@FXML
+	private CheckBox eqItemHatOctopusKingCrownWithObsidian;
+	@FXML
+	private CheckBox eqItemHatMerchantHat;
+	@FXML
+	private CheckBox eqItemHatSorceressHat;
+	@FXML
+	private CheckBox eqItemBodyArmoursLightweightBodyArmour;
+	@FXML
+	private CheckBox eqItemBodyArmoursKnightBodyArmour;
+	@FXML
+	private CheckBox eqItemBodyArmoursEnchantedKnightBodyArmour;
+	@FXML
+	private CheckBox eqItemGlovesLeatherGloves;
+	@FXML
+	private CheckBox eqItemGlovesRedEnchantedGloves;
+	@FXML
+	private CheckBox eqItemGlovesPinkEnchantedGloves;
+	@FXML
+	private CheckBox eqItemBootsLeatherBoots;
+	@FXML
+	private CheckBox eqItemBootsRocketBoots;
+	@FXML
+	private CheckBox eqItemBootsBootsOfIntrospection;
+	
 	/*
 	 * MISCELLANEOUS TAB
 	 */
@@ -176,6 +234,16 @@ public class MainController implements Initializable {
 	}
 
 	private void bindGameVariables() {
+
+		Key[] statusBarLevelKeys = { Key.statusBarUnlocked, Key.statusBarUnlockedCfg, Key.statusBarUnlockedSave,
+				Key.statusBarUnlockedHealthBar, Key.statusBarUnlockedMap };
+		bindBoxToMultipleBooleans(statusBarLevel, new StatusBarLevelConverter(), statusBarLevelKeys);
+		bindBoxToNumbers(statusBarCornerStep, Key.statusBarCornerStep, new StatusBarCornerStepConverter());
+		bind(gameLanguage, Key.gameLanguage, new LanguageConverter());
+		bind(gameGameMode, Key.gameGameMode, GameState.GAME_MODES);
+		bind(gameDebug, Key.gameDebug);
+		bind(gameInvertedColors, Key.gameInvertedColors);
+		
 		bind(gameCandiesCurrent, Key.gameCandiesCurrent);
 		bind(gameCandiesAccumulated, Key.gameCandiesAccumulated);
 		bind(gameCandiesMax, Key.gameCandiesMax);
@@ -195,63 +263,92 @@ public class MainController implements Initializable {
 		bind(gamePainsAuChocolatAccumulated, Key.gamePainsAuChocolatAccumulated);
 		bind(gamePainsAuChocolatMax, Key.gamePainsAuChocolatMax);
 
+		/*
+		 * Village
+		 */
 		bind(secondHouseLollipop1Bought, Key.secondHouseLollipop1Bought);
 		bind(secondHouseLollipop2Bought, Key.secondHouseLollipop2Bought);
 		bind(secondHouseLollipop3Bought, Key.secondHouseLollipop3Bought);
 		bind(secondHouseChocolateBarBought, Key.secondHouseChocolateBarBought);
 		bind(secondHouseTimeRingBought, Key.secondHouseTimeRingBought);
 		bind(secondHouseMerchantHatBought, Key.secondHouseMerchantHatBought);
-
 		bind(forgeFoundLollipop, Key.forgeFoundLollipop);
-		bind(fourthHouseFoundLollipopOnCupboard, Key.fourthHouseFoundLollipopOnCupboard);
-		bind(cellarDone, Key.cellarDone);
-		bind(gameGameMode, Key.gameGameMode, GameState.GAME_MODES);
-		bind(gameDebug, Key.gameDebug);
-		bind(gameInvertedColors, Key.gameInvertedColors);
-
-		bindBoxToNumbers(fourthHouseCupboardStep, Key.fourthHouseCupboardStep, new CupboardStepConverter());
-		bindBoxToNumbers(fourthHouseCarpetStep, Key.fourthHouseCarpetStep, new CarpetStepConverter());
-		bindBoxToNumbers(statusBarCornerStep, Key.statusBarCornerStep, new StatusBarCornerStepConverter());
-		bind(gameLanguage, Key.gameLanguage, new LanguageConverter());
-
-		Key[] statusBarLevelKeys = { Key.statusBarUnlocked, Key.statusBarUnlockedCfg, Key.statusBarUnlockedSave,
-				Key.statusBarUnlockedHealthBar, Key.statusBarUnlockedMap };
-		bindBoxToMultipleBooleans(statusBarLevel, new StatusBarLevelConverter(), statusBarLevelKeys);
-
 		Key[] forgeWeaponBoughtKeys = { Key.forgeBoughtWoodenSword, Key.forgeBoughtIronAxe,
 				Key.forgeBoughtPolishedSilverSword, Key.forgeBoughtLightweightBodyArmour, Key.forgeBoughtScythe };
 		bindBoxToMultipleBooleans(forgeWeaponBought, new ForgeWeaponBoughtConverter(), forgeWeaponBoughtKeys);
-
+		bind(fourthHouseFoundLollipopOnCupboard, Key.fourthHouseFoundLollipopOnCupboard);
+		bindBoxToNumbers(fourthHouseCupboardStep, Key.fourthHouseCupboardStep, new CupboardStepConverter());
+		bindBoxToNumbers(fourthHouseCarpetStep, Key.fourthHouseCarpetStep, new CarpetStepConverter());
+		bind(cellarDone, Key.cellarDone);
+		
+		/*
+		 * Equipment
+		 */
+		bind(eqItemWeaponWoodenSword, Key.eqItemWeaponWoodenSword);
+		bind(eqItemWeaponIronAxe, Key.eqItemWeaponIronAxe);
+		bind(eqItemWeaponPolishedSilverSword, Key.eqItemWeaponPolishedSilverSword);
+		bind(eqItemWeaponTrollBludgeon, Key.eqItemWeaponTrollBludgeon);
+		bind(eqItemWeaponMonkeyWizardStaff, Key.eqItemWeaponMonkeyWizardStaff);
+		bind(eqItemWeaponEnchantedMonkeyWizardStaff, Key.eqItemWeaponEnchantedMonkeyWizardStaff);
+		bind(eqItemWeaponTribalSpear, Key.eqItemWeaponTribalSpear);
+		bind(eqItemWeaponSummoningTribalSpear, Key.eqItemWeaponSummoningTribalSpear);
+		bind(eqItemWeaponGiantSpoon, Key.eqItemWeaponGiantSpoon);
+		bind(eqItemWeaponScythe, Key.eqItemWeaponScythe);
+		bind(eqItemWeaponGiantSpoonOfDoom, Key.eqItemWeaponGiantSpoonOfDoom);
+		bind(eqItemHatOctopusKingCrown, Key.eqItemHatOctopusKingCrown);
+		bind(eqItemHatOctopusKingCrownWithJaspers, Key.eqItemHatOctopusKingCrownWithJaspers);
+		bind(eqItemHatOctopusKingCrownWithObsidian, Key.eqItemHatOctopusKingCrownWithObsidian);
+		bind(eqItemHatMerchantHat, Key.eqItemHatMerchantHat);
+		bind(eqItemHatSorceressHat, Key.eqItemHatSorceressHat);
+		bind(eqItemBodyArmoursLightweightBodyArmour, Key.eqItemBodyArmoursLightweightBodyArmour);
+		bind(eqItemBodyArmoursKnightBodyArmour, Key.eqItemBodyArmoursKnightBodyArmour);
+		bind(eqItemBodyArmoursEnchantedKnightBodyArmour, Key.eqItemBodyArmoursEnchantedKnightBodyArmour);
+		bind(eqItemGlovesLeatherGloves, Key.eqItemGlovesLeatherGloves);
+		bind(eqItemGlovesRedEnchantedGloves, Key.eqItemGlovesRedEnchantedGloves);
+		bind(eqItemGlovesPinkEnchantedGloves, Key.eqItemGlovesPinkEnchantedGloves);
+		bind(eqItemBootsLeatherBoots, Key.eqItemBootsLeatherBoots);
+		bind(eqItemBootsRocketBoots, Key.eqItemBootsRocketBoots);
+		bind(eqItemBootsBootsOfIntrospection, Key.eqItemBootsBootsOfIntrospection);
+		
+		// save text binding
 		rawText.setText(gameState.toString());
 		gameState.getStringBinding().addListener((observable, oldValue, newValue) -> rawText.setText(newValue));
 	}
 
 	private void bind(Label label, Key key) {
-		label.textProperty().bind(gameState.getVariable(key).stringValueProperty());
+		Variable var = gameState.getVariable(key);
+		label.textProperty().bind(var.stringValueProperty());
+		label.disableProperty().bind(var.disabledProperty());
 	}
 
 	private void bind(CheckBox checkBox, Key booleanVariableKey) {
-		checkBox.selectedProperty().bindBidirectional(
-				gameState.getBooleanVariable(booleanVariableKey).boolValueProperty());
+		BooleanVariable boolVar = gameState.getBooleanVariable(booleanVariableKey);
+		checkBox.selectedProperty().bindBidirectional(boolVar.boolValueProperty());
+		checkBox.disableProperty().bind(boolVar.disabledProperty());
 	}
 
 	private void bind(ChoiceBox<String> choiceBox, Key key, String... items) {
 		choiceBox.setItems(FXCollections.observableArrayList(items));
-		choiceBox.valueProperty().bindBidirectional(gameState.getVariable(key).stringValueProperty());
+		Variable var = gameState.getVariable(key);
+		choiceBox.setValue(var.getStringValue());
+		choiceBox.valueProperty().bindBidirectional(var.stringValueProperty());
+		choiceBox.disableProperty().bind(var.disabledProperty());
 	}
 
 	private void bind(ChoiceBox<String> choiceBox, Key stringVariableKey, StringMapping<String> converter) {
 		choiceBox.setItems(FXCollections.observableArrayList(converter.getNames()));
-		StringProperty property = gameState.getVariable(stringVariableKey).stringValueProperty();
-		choiceBox.setValue(converter.toString(property.get()));
-		Bindings.bindBidirectional(choiceBox.valueProperty(), property, converter);
+		Variable var = gameState.getVariable(stringVariableKey);
+		choiceBox.setValue(converter.toString(var.getStringValue()));
+		Bindings.bindBidirectional(choiceBox.valueProperty(), var.stringValueProperty(), converter);
+		choiceBox.disableProperty().bind(var.disabledProperty());
 	}
 
 	private void bindBoxToNumbers(ChoiceBox<String> choiceBox, Key numberVariableKey, StringMapping<Number> converter) {
 		choiceBox.setItems(FXCollections.observableArrayList(converter.getNames()));
-		LongProperty property = gameState.getNumberVariable(numberVariableKey).longValueProperty();
-		choiceBox.setValue(converter.toString(property.get()));
-		Bindings.bindBidirectional(choiceBox.valueProperty(), property, converter);
+		NumberVariable var = gameState.getNumberVariable(numberVariableKey);
+		choiceBox.setValue(converter.toString(var.getLongValue()));
+		Bindings.bindBidirectional(choiceBox.valueProperty(), var.longValueProperty(), converter);
+		choiceBox.disableProperty().bind(var.disabledProperty());
 	}
 
 	private void bindBoxToMultipleBooleans(ChoiceBox<String> choiceBox, StringMapping<Number> converter,
