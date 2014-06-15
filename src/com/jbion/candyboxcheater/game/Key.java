@@ -215,13 +215,13 @@ public enum Key {
 	gameBootsSelected,
 	gameGameMode;
 	
-	private List<Key> controlledKeys;
+	private List<Key> dependantKeys;
 	
-	private Key(Key... controlledKeys) {
-		this.controlledKeys = Arrays.asList(controlledKeys);
+	private Key(Key... dependantKeys) {
+		this.dependantKeys = Arrays.asList(dependantKeys);
 	}
 	
-	public List<Key> getControlledKeys() {
-		return controlledKeys;
+	public List<Key> getDependentKeys() {
+		return dependantKeys;
 	}
 }
