@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum Key {
+	
 	candiesThrownGotChocolateBar,
 	candyBoxBoxOpened,
 	castleBigRoomHovenHappy,
@@ -214,6 +215,9 @@ public enum Key {
 	gameGlovesSelected,
 	gameBootsSelected,
 	gameGameMode;
+
+	public static final String[] GAME_MODES = { "normal", "hard" };
+	public static final String[] LANGUAGES = { "en", "br", "zh", "cz", "nl", "fr", "de", "hu", "id", "pl", "se" };
 	
 	private List<Key> dependantKeys;
 	

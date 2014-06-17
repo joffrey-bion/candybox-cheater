@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jbion.candyboxcheater.view.controllers.InventoryController">
+   <children>
+      <GridPane hgap="20.0" vgap="5.0">
+         <children>
+            <CheckBox fx:id="gridItemPossessedMainMap" mnemonicParsing="false" text="World Map" GridPane.rowIndex="1" />
+            <CheckBox fx:id="gridItemPossessedThirdHouseKey" mnemonicParsing="false" text="Third House Key" GridPane.rowIndex="2" />
+            <CheckBox fx:id="gridItemPossessedBeginnersGrimoire" mnemonicParsing="false" text="Beginner's Grimoire" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <CheckBox fx:id="gridItemPossessedTimeRing" mnemonicParsing="false" text="Time Ring" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <CheckBox fx:id="gridItemPossessedY" mnemonicParsing="false" text="Y Stone" GridPane.rowIndex="9" />
+            <CheckBox fx:id="gridItemPossessedFeather" mnemonicParsing="false" text="Desert Feather" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <CheckBox fx:id="gridItemPossessedSponge" mnemonicParsing="false" text="Magical Sponge" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <CheckBox fx:id="gridItemPossessedRedSharkFin" mnemonicParsing="false" text="Red Shark Fin" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <CheckBox fx:id="gridItemPossessedA" mnemonicParsing="false" text="A Stone" GridPane.rowIndex="8" />
+            <CheckBox fx:id="gridItemPossessedAdvancedGrimoire" mnemonicParsing="false" text="Advanced Grimoire" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <CheckBox fx:id="gridItemPossessedPogoStick" mnemonicParsing="false" text="Pogo Stick" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <CheckBox fx:id="gridItemPossessedBlackMagicGrimoire" mnemonicParsing="false" text="Black Magic Grimoire" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <CheckBox fx:id="gridItemPossessedXinopherydonClaw" mnemonicParsing="false" text="Xinopherydon's Claw" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <CheckBox fx:id="gridItemPossessedPurpleSharkFin" mnemonicParsing="false" text="Purple Shark Fin" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <CheckBox fx:id="gridItemPossessedShellPowder" mnemonicParsing="false" text="Shell Powder" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <CheckBox fx:id="gridItemPossessedTalkingCandy" mnemonicParsing="false" text="Talking Candy" GridPane.rowIndex="10" />
+            <CheckBox fx:id="gridItemPossessedGreenSharkFin" mnemonicParsing="false" text="Green Shark Fin" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+            <CheckBox fx:id="gridItemPossessedUnicornHorn" mnemonicParsing="false" text="Unicorn Horn" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <CheckBox fx:id="gridItemPossessedL" mnemonicParsing="false" text="L Stone" GridPane.rowIndex="7" />
+            <CheckBox fx:id="gridItemPossessedHeartPlug" mnemonicParsing="false" text="Heart Plug" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <CheckBox fx:id="gridItemPossessedHeartPendant" mnemonicParsing="false" text="Heart Pendant" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <CheckBox fx:id="gridItemPossessedFortressKey" mnemonicParsing="false" text="Desert Fortress Key" GridPane.rowIndex="3" />
+            <CheckBox fx:id="gridItemPossessedPitchfork" mnemonicParsing="false" text="Pitchfork" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <CheckBox fx:id="gridItemPossessedP" mnemonicParsing="false" text="P Stone" GridPane.rowIndex="6" />
+            <Label styleClass="subsection-title" text="Unlock Map Areas" />
+            <Label styleClass="subsection-title" text="Unlock Abilities" GridPane.columnIndex="1" />
+            <Label styleClass="subsection-title" text="Boost Abilities" GridPane.columnIndex="2" />
+            <Label styleClass="subsection-title" text="Unlock Spells" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label styleClass="subsection-title" text="Boost Lollipop Farm" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Label styleClass="subsection-title" text="Quest Items" GridPane.rowIndex="5" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+         </columnConstraints>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</Pane>
