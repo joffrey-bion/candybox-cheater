@@ -2,6 +2,12 @@ package com.jbion.candyboxcheater.view.converters;
 
 public class NumberToStringMapping extends StringMapping<Number> {
 	
+	public NumberToStringMapping(String... values) {
+		for (int i = 0; i < values.length; i++) {
+			put(i, values[i]);
+		}
+	}
+	
 	@Override
 	protected void put(Number code, String name) {
 		super.put(code.intValue(), name);

@@ -1,6 +1,7 @@
 package com.jbion.candyboxcheater.game;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public enum Key {
@@ -218,6 +219,36 @@ public enum Key {
 
 	public static final String[] GAME_MODES = { "normal", "hard" };
 	public static final String[] LANGUAGES = { "en", "br", "zh", "cz", "nl", "fr", "de", "hu", "id", "pl", "se" };
+	public static final List<Key[]> IDENTITIES = new LinkedList<>();
+	static {
+		addIdentity(forgeBoughtWoodenSword, eqItemWeaponWoodenSword);
+		addIdentity(forgeBoughtIronAxe, eqItemWeaponIronAxe);
+		addIdentity(forgeBoughtPolishedSilverSword, eqItemWeaponPolishedSilverSword);
+		addIdentity(forgeBoughtLightweightBodyArmour, eqItemBodyArmoursLightweightBodyArmour);
+		addIdentity(forgeBoughtScythe, eqItemWeaponScythe);
+		addIdentity(cellarDone, gridItemPossessedMainMap);
+		addIdentity(secondHouseTimeRingBought, gridItemPossessedTimeRing);
+		addIdentity(secondHouseMerchantHatBought, eqItemHatMerchantHat);
+		addIdentity(mainMapDoneDesert, statusBarUnlockedLollipopFarm);
+		addIdentity(mainMapDoneBridge, eqItemWeaponTrollBludgeon);
+		addIdentity(sorceressHutBoughtGrimoire, gridItemPossessedBeginnersGrimoire);
+		addIdentity(sorceressHutBoughtGrimoire2, gridItemPossessedAdvancedGrimoire);
+		addIdentity(sorceressHutBoughtCauldron, statusBarUnlockedCauldron);
+		addIdentity(sorceressHutBoughtHat, eqItemHatSorceressHat);
+		addIdentity(theHoleFirstChestFound, gridItemPossessedHeartPendant);
+		addIdentity(theHoleSecondChestFound, gridItemPossessedFortressKey);
+		addIdentity(theHoleThirdChestFound, gridItemPossessedBlackMagicGrimoire);
+		addIdentity(fortressRoom3ChestFound, eqItemBootsRocketBoots);
+		addIdentity(fortressRoom1ChestFound, gridItemPossessedUnicornHorn);
+		addIdentity(castleRoom2TookObject, gridItemPossessedPitchfork);
+		addIdentity(lighthousePuzzleDone, gridItemPossessedP);
+		addIdentity(castleTowerTookTalkingCandy, gridItemPossessedTalkingCandy);
+		addIdentity(candyBoxBoxOpened, statusBarUnlockedInsideYourBox, statusBarUnlockedTheComputer, statusBarUnlockedTheArena);
+	}
+	
+	private static void addIdentity(Key... identicalKeys) {
+		IDENTITIES.add(identicalKeys);
+	}
 	
 	private List<Key> dependantKeys;
 	

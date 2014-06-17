@@ -1,3 +1,8 @@
+.section-title {
+	-fx-font-size: 14px;
+	-fx-font-weight: bold;
+}
+
 .subsection-title {
 	-fx-font-weight: bold;
 }

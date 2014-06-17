@@ -1,4 +1,4 @@
-package com.jbion.candyboxcheater.view.controllers;
+package com.jbion.candyboxcheater.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

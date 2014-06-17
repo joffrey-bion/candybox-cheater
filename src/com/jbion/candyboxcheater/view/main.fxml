@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jbion.candyboxcheater.view.controllers.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="240.0" minWidth="320.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jbion.candyboxcheater.controllers.MainController">
    <center>
       <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -91,12 +91,14 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Village Progress">
+            <Tab text="Progress">
                <content>
                   <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
                      <children>
-                        <ScrollPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                        <fx:include source="village.fxml" />
+                        <ScrollPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <content>
+                              <fx:include source="progress.fxml" />
+                           </content></ScrollPane>
                      </children>
                   </AnchorPane>
                </content>
@@ -105,8 +107,10 @@
               <content>
                 <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
                      <children>
-                        <ScrollPane layoutX="220.0" layoutY="75.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                        <fx:include source="equipment.fxml" />
+                        <ScrollPane layoutX="220.0" layoutY="75.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <content>
+                              <fx:include source="equipment.fxml" />
+                           </content></ScrollPane>
                      </children>
                   </AnchorPane>
               </content>
@@ -115,8 +119,10 @@
               <content>
                 <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
                      <children>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                        <fx:include source="inventory.fxml" />
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <content>
+                              <fx:include source="inventory.fxml" />
+                           </content></ScrollPane>
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -124,30 +130,14 @@
               <content>
                 <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
                      <children>
-                        <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                        <fx:include source="miscellaneous.fxml" />
+                        <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <content>
+                              <fx:include source="miscellaneous.fxml" />
+                           </content></ScrollPane>
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
-          <Tab disable="true" text="All Vars">
-            <content>
-              <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
-                     <children>
-                        <ScrollPane layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefViewportHeight="400.0" prefViewportWidth="248.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
-                           <content>
-                              <TableView fx:id="varTable" layoutX="187.0" layoutY="9.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                                <columns>
-                                  <TableColumn maxWidth="-1.0" minWidth="300.0" prefWidth="-1.0" text="Variable Name" />
-                                  <TableColumn maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="Value" />
-                                </columns>
-                              </TableView>
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
         </tabs>
          <BorderPane.margin>
             <Insets />
