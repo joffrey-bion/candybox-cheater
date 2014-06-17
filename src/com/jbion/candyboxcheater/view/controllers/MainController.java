@@ -10,17 +10,6 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 
 public class MainController extends BaseController {
-
-	@FXML
-	private StocksController stocksController;
-	@FXML
-	private InventoryController inventoryController;
-	@FXML
-	private EquipmentController equipmentController;
-	@FXML
-	private VillageController villageController;
-	@FXML
-	private MiscellaneousController miscellaneousController;
 	
 	@FXML
 	private TextArea rawText;
