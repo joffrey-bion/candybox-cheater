@@ -13,7 +13,8 @@ public class MultiBooleanBinding {
 	private final LongProperty numberProperty;
 	private final BooleanProperty[] booleanProperties;
 
-	public static MultiBooleanBinding createMultiBooleanBinding(GameState state, LongProperty numberProperty, Key... booleanKeys) {
+	public static MultiBooleanBinding createMultiBooleanBinding(GameState state, LongProperty numberProperty,
+			Key... booleanKeys) {
 		BooleanProperty[] booleanProperties = new BooleanProperty[booleanKeys.length];
 		for (int i = 0; i < booleanProperties.length; i++) {
 			booleanProperties[i] = state.getBooleanVariable(booleanKeys[i]).boolValueProperty();
@@ -24,17 +25,21 @@ public class MultiBooleanBinding {
 	public MultiBooleanBinding(LongProperty numberProperty, BooleanProperty... booleanProps) {
 		this.numberProperty = numberProperty;
 		this.booleanProperties = booleanProps;
-		updateNumber();
+		updateNumber(false);
 		numberProperty.addListener(new MultiBooleanNumberChangeListener(this));
 		for (int i = 0; i < booleanProperties.length; i++) {
 			booleanProperties[i].addListener(new NumberedBooleanChangeListener(this));
 		}
 	}
 
-	void updateNumber() {
-		int i = 0;
-		while (i < booleanProperties.length && booleanProperties[i].get()) {
-			i++;
+	void updateNumber(boolean backwards) {
+		int i = backwards ? booleanProperties.length : 0;
+		if (backwards) {
+			while (i > 1 && !booleanProperties[i - 1].get())
+				i--;
+		} else {
+			while (i < booleanProperties.length && booleanProperties[i].get())
+				i++;
 		}
 		numberProperty.set(i);
 	}
@@ -55,7 +60,7 @@ public class MultiBooleanBinding {
 			this.binding = binding;
 			this.changing = false;
 		}
-		
+
 		@Override
 		public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 			if (!changing) {
@@ -84,7 +89,7 @@ public class MultiBooleanBinding {
 			if (!changing) {
 				try {
 					changing = true;
-					binding.updateNumber();
+					binding.updateNumber(newValue);
 				} finally {
 					changing = false;
 				}

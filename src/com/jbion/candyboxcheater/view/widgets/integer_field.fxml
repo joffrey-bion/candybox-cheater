@@ -5,10 +5,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jbion.candyboxcheater.controllers.widgets.IntegerFieldController">
    <children>
-      <TextField fx:id="field" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="30.0" />
+      <TextField fx:id="field" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="50" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="2" prefHeight="25.0" prefWidth="35.0" HBox.hgrow="SOMETIMES" />
       <Button maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decrement" prefHeight="25.0" prefWidth="25.0" text="-" />
       <Button maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#increment" prefHeight="25.0" prefWidth="25.0" text="+" />
    </children>

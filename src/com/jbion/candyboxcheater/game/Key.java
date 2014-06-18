@@ -221,7 +221,7 @@ public enum Key {
 	public static final String[] LANGUAGES = { "en", "br", "zh", "cz", "nl", "fr", "de", "hu", "id", "pl", "se" };
 	public static final List<Key[]> IDENTITIES = new LinkedList<>();
 	static {
-		addIdentity(forgeBoughtWoodenSword, eqItemWeaponWoodenSword);
+		addIdentity(forgeBoughtWoodenSword, eqItemWeaponWoodenSword, statusBarUnlockedInventory);
 		addIdentity(forgeBoughtIronAxe, eqItemWeaponIronAxe);
 		addIdentity(forgeBoughtPolishedSilverSword, eqItemWeaponPolishedSilverSword);
 		addIdentity(forgeBoughtLightweightBodyArmour, eqItemBodyArmoursLightweightBodyArmour);

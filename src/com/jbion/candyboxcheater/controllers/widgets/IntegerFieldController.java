@@ -13,6 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.util.converter.NumberStringConverter;
 
 public class IntegerFieldController implements Initializable {
+	
+	private static final int MIN = 0;
+	private static final int MAX = Integer.MAX_VALUE;
 
 	@FXML
 	private TextField field;
@@ -33,13 +36,24 @@ public class IntegerFieldController implements Initializable {
 	@FXML
 	void decrement(@SuppressWarnings("unused") ActionEvent event) {
 		int i = value.get();
-		if (i > 0) {
+		if (i > MAX) {
+			value.set(MAX);
+		} else if (MIN < i) {
 			value.set(i - 1);
+		} else {
+			value.set(MIN);
 		}
 	}
 
 	@FXML
 	void increment(@SuppressWarnings("unused") ActionEvent event) {
-		value.set(value.get() + 1);
+		int i = value.get();
+		if (i < MIN) {
+			value.set(MIN);
+		} else if (i < MAX) {
+			value.set(i + 1);
+		} else {
+			value.set(MAX);
+		}
 	}
 }
