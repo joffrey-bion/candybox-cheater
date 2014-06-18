@@ -1,6 +1,7 @@
 package com.jbion.candyboxcheater.controllers;
 
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.collections.FXCollections;
@@ -36,6 +37,11 @@ public abstract class BaseController implements Initializable {
 		BooleanVariable boolVar = gameState.getBooleanVariable(booleanVariableKey);
 		checkBox.selectedProperty().bindBidirectional(boolVar.boolValueProperty());
 		checkBox.disableProperty().bind(boolVar.disabledProperty());
+	}
+
+	protected void bind(IntegerProperty property, Key integerVariableKey) {
+		NumberVariable longVar = gameState.getNumberVariable(integerVariableKey);
+		property.bindBidirectional(longVar.longValueProperty());
 	}
 
 	protected void bind(ChoiceBox<String> choiceBox, Key key, String... items) {

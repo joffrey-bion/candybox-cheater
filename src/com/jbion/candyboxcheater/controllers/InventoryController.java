@@ -5,7 +5,9 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 
+import com.jbion.candyboxcheater.controllers.widgets.IntegerFieldController;
 import com.jbion.candyboxcheater.game.Key;
 
 public class InventoryController extends BaseController {
@@ -57,6 +59,13 @@ public class InventoryController extends BaseController {
 	private CheckBox gridItemPossessedY;
 	@FXML
 	private CheckBox gridItemPossessedTalkingCandy;
+	
+	@FXML
+	private IntegerFieldController giftPowerController;
+	@FXML
+	private IntegerFieldController giftHealthController;
+	@FXML
+	private ChoiceBox<String> gameGiftMagic;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -84,5 +93,10 @@ public class InventoryController extends BaseController {
 		bind(gridItemPossessedA, Key.gridItemPossessedA);
 		bind(gridItemPossessedY, Key.gridItemPossessedY);
 		bind(gridItemPossessedTalkingCandy, Key.gridItemPossessedTalkingCandy);
+		
+		bind(giftPowerController.valueProperty(), Key.gameGiftPower);
+		bind(giftHealthController.valueProperty(), Key.gameGiftHealth);
+		String[] giftMagicValues = {"0%", "15%", "30%", "45%", "60%", "75%", "90%"};
+		bindBoxToNumbers(gameGiftMagic, Key.gameGiftMagic, giftMagicValues);
 	}
 }
