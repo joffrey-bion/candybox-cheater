@@ -29,7 +29,7 @@ public abstract class BaseController implements Initializable {
 
 	protected void bind(Label label, Key key) {
 		Variable var = gameState.getVariable(key);
-		label.textProperty().bind(var.stringValueProperty());
+		label.textProperty().bind(var.displayValueProperty());
 		label.disableProperty().bind(var.disabledProperty());
 	}
 
@@ -62,7 +62,7 @@ public abstract class BaseController implements Initializable {
 
 	protected void bindBoxToNumbers(ChoiceBox<String> choiceBox, Key numberVariableKey, String[] values) {
 		NumberToStringMapping converter = new NumberToStringMapping(values);
-		choiceBox.setItems(FXCollections.observableArrayList(converter.getNames()));
+		choiceBox.setItems(FXCollections.observableArrayList(values));
 		NumberVariable var = gameState.getNumberVariable(numberVariableKey);
 		choiceBox.setValue(converter.toString(var.getLongValue()));
 		Bindings.bindBidirectional(choiceBox.valueProperty(), var.longValueProperty(), converter);
@@ -71,7 +71,7 @@ public abstract class BaseController implements Initializable {
 
 	protected void bindBoxToProgressiveBooleans(ChoiceBox<String> choiceBox, String[] values, Key... booleanKeys) {
 		NumberToStringMapping converter = new NumberToStringMapping(values);
-		choiceBox.setItems(FXCollections.observableArrayList(converter.getNames()));
+		choiceBox.setItems(FXCollections.observableArrayList(values));
 		LongProperty tempProperty = new SimpleLongProperty();
 		MultiBooleanBinding.createMultiBooleanBinding(gameState, tempProperty, booleanKeys);
 		choiceBox.setValue(converter.toString(tempProperty.get()));
