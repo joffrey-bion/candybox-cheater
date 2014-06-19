@@ -47,7 +47,9 @@ public class NumberVariable extends Variable {
      * @return The new value of this variable.
      */
     public long increment(long amount) {
-        long newValue = getLongValue() + amount;
+    	long oldValue = getLongValue();
+    	boolean overflow = oldValue > Long.MAX_VALUE - amount;
+        long newValue = overflow ? Long.MAX_VALUE : oldValue + amount;
         setLongValue(newValue);
         return newValue;
     }

@@ -91,30 +91,30 @@ public class GameState {
 		return vars.keySet();
 	}
 
-	public void incrementCandies(int amount) {
+	public void incrementCandies(long amount) {
 		incrementVariable(amount, Key.gameCandiesCurrent, Key.gameCandiesAccumulated, Key.gameCandiesMax);
 	}
 
-	public void incrementEatenCandies(int amount) {
+	public void incrementEatenCandies(long amount) {
 		incrementVariable(amount, Key.gameCandiesEatenCurrent, Key.gameCandiesEatenAccumulated,
 				Key.gameCandiesEatenMax, Key.gameCandiesAccumulated);
 	}
 
-	public void incrementThrownCandies(int amount) {
+	public void incrementThrownCandies(long amount) {
 		incrementVariable(amount, Key.gameCandiesThrownCurrent, Key.gameCandiesThrownAccumulated,
 				Key.gameCandiesThrownMax, Key.gameCandiesAccumulated);
 	}
 
-	public void incrementLollipops(int amount) {
+	public void incrementLollipops(long amount) {
 		incrementVariable(amount, Key.gameLollipopsCurrent, Key.gameLollipopsAccumulated, Key.gameLollipopsMax);
 	}
 
-	public void incrementChocolateBars(int amount) {
+	public void incrementChocolateBars(long amount) {
 		incrementVariable(amount, Key.gameChocolateBarsCurrent, Key.gameChocolateBarsAccumulated,
 				Key.gameChocolateBarsMax);
 	}
 
-	public void incrementPainsAuChocolat(int amount) {
+	public void incrementPainsAuChocolat(long amount) {
 		incrementVariable(amount, Key.gamePainsAuChocolatCurrent, Key.gamePainsAuChocolatAccumulated,
 				Key.gamePainsAuChocolatMax);
 	}
@@ -132,7 +132,7 @@ public class GameState {
 	 * @param maxKey
 	 *            The key of the variable representing the max reached value
 	 */
-	private void incrementVariable(int amount, Key currentKey, Key accumulatorKey, Key maxKey,
+	private void incrementVariable(long amount, Key currentKey, Key accumulatorKey, Key maxKey,
 			Key... parentAccumulators) {
 		long newCurrent = getNumberVariable(currentKey).increment(amount);
 		NumberVariable max = getNumberVariable(maxKey);

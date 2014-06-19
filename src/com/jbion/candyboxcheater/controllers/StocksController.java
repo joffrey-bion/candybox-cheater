@@ -2,7 +2,7 @@ package com.jbion.candyboxcheater.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.function.IntConsumer;
+import java.util.function.LongConsumer;
 
 import com.jbion.candyboxcheater.game.Key;
 
@@ -115,9 +115,9 @@ public class StocksController extends BaseController {
 		consumeValue(gameState::incrementPainsAuChocolat, painsAuChocolatAddField);
 	}
 
-	private static void consumeValue(IntConsumer consumer, TextField intField) {
+	private static void consumeValue(LongConsumer consumer, TextField intField) {
 		try {
-			consumer.accept(Integer.parseInt(intField.getText()));
+			consumer.accept(Long.parseLong(intField.getText()));
 		} catch (NumberFormatException e) {
 			System.err.println("Input error");
 		}
