@@ -21,6 +21,7 @@ public class CandyGameSaveParser {
 	 * 
 	 * @param textSave
 	 *            the CandyBox game save, as text
+	 * @return the created {@link Map} of variables
 	 * @throws ParseException
 	 *             if an error occurred during parsing
 	 */
