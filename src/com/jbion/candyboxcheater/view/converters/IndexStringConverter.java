@@ -3,20 +3,21 @@ package com.jbion.candyboxcheater.view.converters;
 import javafx.util.StringConverter;
 
 /**
- * Provides an implementation of {@link StringConverter} for numbers conversion,
- * fixing {@code null} pointer problems. This class also provides simple
- * initialization
+ * Provides an implementation of {@link StringConverter} that associates each
+ * {@link String} of an array to its index in that array.
  */
-public class NumberToStringMapping extends StringConverter<Number> {
+public class IndexStringConverter extends StringConverter<Number> {
 
 	private final String[] table;
 
-	public NumberToStringMapping(final String... values) {
-		table = values;
-	}
-
-	protected void put(Number code, String name) {
-		table[code.intValue()] = name;
+	/**
+	 * Creates a new {@link IndexStringConverter} for the specified array.
+	 * 
+	 * @param values
+	 *            the array of strings
+	 */
+	public IndexStringConverter(final String... values) {
+		this.table = values;
 	}
 
 	@Override

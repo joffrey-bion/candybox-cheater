@@ -16,7 +16,7 @@ import com.jbion.candyboxcheater.game.variables.BooleanVariable;
 import com.jbion.candyboxcheater.game.variables.NumberVariable;
 import com.jbion.candyboxcheater.game.variables.Variable;
 import com.jbion.candyboxcheater.view.bindings.MultiBooleanBinding;
-import com.jbion.candyboxcheater.view.converters.NumberToStringMapping;
+import com.jbion.candyboxcheater.view.converters.IndexStringConverter;
 import com.jbion.candyboxcheater.view.converters.StringMapping;
 
 public abstract class BaseController implements Initializable {
@@ -61,7 +61,7 @@ public abstract class BaseController implements Initializable {
 	}
 
 	protected void bindBoxToNumbers(ChoiceBox<String> choiceBox, Key numberVariableKey, String[] values) {
-		NumberToStringMapping converter = new NumberToStringMapping(values);
+		IndexStringConverter converter = new IndexStringConverter(values);
 		choiceBox.setItems(FXCollections.observableArrayList(values));
 		NumberVariable var = gameState.getNumberVariable(numberVariableKey);
 		choiceBox.setValue(converter.toString(var.getLongValue()));
@@ -70,7 +70,7 @@ public abstract class BaseController implements Initializable {
 	}
 
 	protected void bindBoxToProgressiveBooleans(ChoiceBox<String> choiceBox, String[] values, Key... booleanKeys) {
-		NumberToStringMapping converter = new NumberToStringMapping(values);
+		IndexStringConverter converter = new IndexStringConverter(values);
 		choiceBox.setItems(FXCollections.observableArrayList(values));
 		LongProperty tempProperty = new SimpleLongProperty();
 		MultiBooleanBinding.createMultiBooleanBinding(gameState, tempProperty, booleanKeys);
