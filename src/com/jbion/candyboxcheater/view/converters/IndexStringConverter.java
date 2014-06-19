@@ -22,6 +22,9 @@ public class IndexStringConverter extends StringConverter<Number> {
 
 	@Override
 	public String toString(Number number) {
+		if (number == null) {
+			return null;
+		}
 		return table[number.intValue()];
 	}
 

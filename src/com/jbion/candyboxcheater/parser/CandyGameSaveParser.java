@@ -52,7 +52,7 @@ public class CandyGameSaveParser {
 			} catch (ParseException e) {
 				throw new ParseException(e.getMessage(), e.getErrorOffset() + errorOffset);
 			}
-			errorOffset += varDeclaration.length();
+			errorOffset += varDeclaration.length() + 1; // 1 for the comma!
 		}
 		List<String> missingVars = getMissingVariables(vars);
 		if (missingVars.size() > 0) {

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.util.ResourceBundle;
 
+import com.jbion.candyboxcheater.error.ErrorHandler;
 import com.jbion.candyboxcheater.game.Key;
 import com.jbion.candyboxcheater.game.variables.BooleanVariable;
 
@@ -55,7 +56,7 @@ public class MainController extends BaseController {
 			gameState.updateTo(saveText);
 			rawText.setText(gameState.toString());
 		} catch (ParseException e) {
-			System.err.println("Parsing error at position " + e.getErrorOffset() + ": " + e.getMessage());
+			ErrorHandler.display("Parsing error at position " + e.getErrorOffset() + ": " + e.getMessage());
 		}
 	}
 }
