@@ -259,4 +259,13 @@ public enum Key {
 	public List<Key> getDependentKeys() {
 		return dependantKeys;
 	}
+
+	public static boolean exists(String name) {
+		try {
+			valueOf(name);
+			return true;
+		} catch (IllegalArgumentException e) {
+			return false;
+		}
+	}
 }

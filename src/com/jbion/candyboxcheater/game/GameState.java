@@ -1,5 +1,6 @@
 package com.jbion.candyboxcheater.game;
 
+import java.text.ParseException;
 import java.util.Map;
 import java.util.Set;
 
@@ -27,10 +28,14 @@ public class GameState {
 	private StringBinding textValue;
 
 	public GameState() {
-		this.vars = CandyGameSaveParser.parse(INIT_GAME);
+		try {
+			this.vars = CandyGameSaveParser.parse(INIT_GAME);
+		} catch (ParseException e) {
+			throw new RuntimeException("Incorrect initial save", e);
+		}
 	}
 
-	public void updateTo(String saveText) {
+	public void updateTo(String saveText) throws ParseException {
 		CandyGameSaveParser.parseAndUpdate(saveText, vars);
 	}
 

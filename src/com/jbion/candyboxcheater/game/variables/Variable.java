@@ -26,8 +26,8 @@ public class Variable {
 	 * Creates a new {@link Variable}.
 	 * 
 	 * @param type
-	 *            the type of the variable. It must be one of {@link #TYPE_BOOL},
-	 *            {@link #TYPE_NUMBER} or {@link #TYPE_STRING}.
+	 *            the type of the variable. It must be valid with respect to
+	 *            {@link #isValidType(String)}.
 	 * @param name
 	 *            the name of the variable
 	 * @param value
@@ -65,6 +65,25 @@ public class Variable {
 		this.name = name;
 		this.stringValue = new SimpleStringProperty(value);
 		this.disabled = new SimpleBooleanProperty(false);
+	}
+
+	/**
+	 * Returns {@code true} if the specified {@link String} is a valid type for a
+	 * {@link Variable}.
+	 * 
+	 * @param type
+	 *            the type string to check
+	 * @return {@code true} if the specified {@link String} is a valid type
+	 */
+	public static boolean isValidType(String type) {
+		switch (type) {
+		case TYPE_BOOL:
+		case TYPE_NUMBER:
+		case TYPE_STRING:
+			return true;
+		default:
+			return false;
+		}
 	}
 
 	/**

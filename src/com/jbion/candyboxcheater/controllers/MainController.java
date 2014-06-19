@@ -1,6 +1,7 @@
 package com.jbion.candyboxcheater.controllers;
 
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
 
 import com.jbion.candyboxcheater.game.Key;
@@ -15,7 +16,7 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 
 public class MainController extends BaseController {
-	
+
 	@FXML
 	private TextArea rawText;
 	@FXML
@@ -32,7 +33,7 @@ public class MainController extends BaseController {
 				Bindings.bindBidirectional(var1.boolValueProperty(), var2.boolValueProperty());
 			}
 		}
-		
+
 		// save text binding
 		rawText.setText(gameState.toString());
 		gameState.getStringBinding().addListener((observable, oldValue, newValue) -> {
@@ -50,6 +51,11 @@ public class MainController extends BaseController {
 	@FXML
 	private void parseSaveText(@SuppressWarnings("unused") ActionEvent event) {
 		String saveText = rawText.getText();
-		gameState.updateTo(saveText);
+		try {
+			gameState.updateTo(saveText);
+			rawText.setText(gameState.toString());
+		} catch (ParseException e) {
+			System.err.println("Parsing error at position " + e.getErrorOffset() + ": " + e.getMessage());
+		}
 	}
 }
