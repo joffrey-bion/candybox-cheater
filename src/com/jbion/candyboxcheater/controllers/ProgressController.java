@@ -170,9 +170,9 @@ public class ProgressController extends BaseController {
 		bind(lonelyHouseLureTheBoxWithACandyDone, Key.lonelyHouseLureTheBoxWithACandyDone);
 		bind(lonelyHouseTakeTheBoxDone, Key.lonelyHouseTakeTheBoxDone);
 
-		String[] squirrelProgressValues = { "Nothing done", "Answered 1st question (yes)", "Answered 2nd question (C)",
-				"Answered 3rd question (current candies)", "Answered 4th question (10)", "Answered 5th question (wet)",
-				"Won game (put crosses out of the grid)" };
+		String[] squirrelProgressValues = { "Nothing done", "Talked to it once", "Answered 1st question (yes)", "Answered 2nd question (C)",
+				"Answered 3rd question (current candies)", "Answered 4th question (10)", "Answered 5th question (wet)", "Started playing game", 
+				"Won game (put crosses out of the grid)", "Finished" };
 		bindBoxToNumbers(squirrelProgress, Key.aTreeStep, squirrelProgressValues);
 		
 		bind(TheCavePattern_ChocolateBarNowGotTheBar, Key.TheCavePattern_ChocolateBarNowGotTheBar);
