@@ -3,16 +3,28 @@ package com.jbion.candyboxcheater.game.variables;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.util.converter.NumberStringConverter;
 
 public class NumberVariable extends Variable {
 
     private LongProperty longValue;
+    private StringProperty displayValue;
 
     public NumberVariable(String name, String value) {
         super(TYPE_NUMBER, name, value);
         longValue = new SimpleLongProperty(Long.parseLong(value));
-        Bindings.bindBidirectional(stringValueProperty(), longValue, new NumberStringConverter());
+        displayValue = new SimpleStringProperty();
+        Bindings.bindBidirectional(stringValueProperty(), longValue, new NumberStringConverter() {
+        	@Override
+        	public String toString(Number n) {
+        		// no formatting at all, for string variable value
+        		return String.valueOf(n);
+        	}
+        });
+        // with formatting for display
+        Bindings.bindBidirectional(displayValue, longValue, new NumberStringConverter());
     }
 
     public LongProperty longValueProperty() {
@@ -38,5 +50,10 @@ public class NumberVariable extends Variable {
         long newValue = getLongValue() + amount;
         setLongValue(newValue);
         return newValue;
+    }
+    
+    @Override
+    public StringProperty displayValueProperty() {
+    	return displayValue;
     }
 }
