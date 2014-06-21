@@ -10,10 +10,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.util.converter.NumberStringConverter;
 
 public class IntegerFieldController implements Initializable {
-	
+
 	private static final int MIN = 0;
 	private static final int MAX = Integer.MAX_VALUE;
 
@@ -25,8 +26,19 @@ public class IntegerFieldController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		field.setText("0");
+		field.addEventFilter(KeyEvent.KEY_TYPED, (KeyEvent inputevent) -> {
+			if (!inputevent.getCharacter().matches("\\d")) {
+				inputevent.consume();
+			}
+		});
 		value = new SimpleIntegerProperty(0);
-		Bindings.bindBidirectional(field.textProperty(), value, new NumberStringConverter());
+		Bindings.bindBidirectional(field.textProperty(), value, new NumberStringConverter() {
+			@Override
+			public String toString(Number n) {
+				// no formatting at all, for string variable value
+				return String.valueOf(n);
+			}
+		});
 	}
 
 	public IntegerProperty valueProperty() {
