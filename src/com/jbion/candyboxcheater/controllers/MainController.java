@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.jbion.candyboxcheater.error.ErrorHandler;
 import com.jbion.candyboxcheater.game.Key;
+import com.jbion.candyboxcheater.game.Key.Dependency;
 import com.jbion.candyboxcheater.game.variables.BooleanVariable;
 
 import javafx.beans.binding.Bindings;
@@ -27,19 +28,43 @@ public class MainController extends BaseController {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		for (Key[] identity : Key.IDENTITIES) {
-			for (int i = 0; i < identity.length - 1; i++) {
-				BooleanVariable var1 = gameState.getBooleanVariable(identity[i]);
-				BooleanVariable var2 = gameState.getBooleanVariable(identity[i + 1]);
-				Bindings.bindBidirectional(var1.boolValueProperty(), var2.boolValueProperty());
-			}
-		}
+		bindIdentities();
+		bindStringDependencies();
 
 		// save text binding
 		rawText.setText(gameState.toString());
 		gameState.getStringBinding().addListener((observable, oldValue, newValue) -> {
 			rawText.setText(newValue);
 		});
+	}
+
+	private void bindIdentities() {
+		for (Key[] identity : Key.IDENTITIES) {
+			for (int i = 0; i < identity.length - 1; i++) {
+				final BooleanVariable var1 = gameState.getBooleanVariable(identity[i]);
+				final BooleanVariable var2 = gameState.getBooleanVariable(identity[i + 1]);
+				Bindings.bindBidirectional(var1.boolValueProperty(), var2.boolValueProperty());
+			}
+		}
+	}
+
+	private void bindStringDependencies() {
+		for (Dependency dependency : Key.STRONG_DEPENDENCIES) {
+			final BooleanVariable required = gameState.getBooleanVariable(dependency.getRequired());
+			final BooleanVariable dependent = gameState.getBooleanVariable(dependency.getDependent());
+			required.boolValueProperty().addListener((obs, oldValue, newValue) -> {
+				if (!newValue) {
+					// the required variable became false, so the dependent can't be true
+					dependent.setBooleanValue(false);
+				}
+			});
+			dependent.boolValueProperty().addListener((obs, oldValue, newValue) -> {
+				if (newValue) {
+					// the dependent variable became true, so the required has to be true
+					required.setBooleanValue(true);
+				}
+			});
+		}
 	}
 
 	@FXML

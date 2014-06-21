@@ -1,6 +1,5 @@
 package com.jbion.candyboxcheater.game;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -226,7 +225,7 @@ public enum Key {
 	 */
 	public static final List<Key[]> IDENTITIES = new LinkedList<>();
 	/**
-	 * Defines relations between 2 {@link Key}s R and D where:
+	 * Defines {@link Dependency} relations where:
 	 * <ul>
 	 * <li>If {@code R} becomes {@code false}, {@code D} must be set to {@code false}
 	 * because it depends on {@code R}</li>
@@ -234,17 +233,8 @@ public enum Key {
 	 * because it is required for {@code D}</li>
 	 * </ul>
 	 */
-	public static final List<Pair<Key, Key>> STRONG_DEPENDENCIES = new LinkedList<>();
-	/**
-	 * Defines relations between 2 {@link Key}s R and D where:
-	 * <ul>
-	 * <li>If {@code R} becomes {@code true}, {@code D} must be set to {@code true}
-	 * because it depends on {@code R}</li>
-	 * <li>If {@code D} becomes {@code false}, {@code R} must be set to {@code false}
-	 * because it is required for {@code D}</li>
-	 * </ul>
-	 */
-	public static final List<Pair<Key, Key>> WEAK_DEPENDENCIES = new LinkedList<>();
+	public static final List<Dependency> STRONG_DEPENDENCIES = new LinkedList<>();
+
 	static {
 		addIdentity(forgeBoughtWoodenSword, eqItemWeaponWoodenSword, statusBarUnlockedInventory);
 		addIdentity(forgeBoughtIronAxe, eqItemWeaponIronAxe);
@@ -254,6 +244,7 @@ public enum Key {
 		addIdentity(cellarDone, gridItemPossessedMainMap);
 		addIdentity(secondHouseTimeRingBought, gridItemPossessedTimeRing);
 		addIdentity(secondHouseMerchantHatBought, eqItemHatMerchantHat);
+		addIdentity(SuperRPGReward4, SuperRPGUnlockedHardmode);
 		addIdentity(mainMapDoneDesert, statusBarUnlockedLollipopFarm, lollipopFarmPlant1LollipopButtonUnlocked);
 		addIdentity(mainMapDoneBridge, eqItemWeaponTrollBludgeon);
 		addIdentity(sorceressHutBoughtGrimoire, gridItemPossessedBeginnersGrimoire);
@@ -271,13 +262,34 @@ public enum Key {
 		addIdentity(candyBoxBoxOpened, statusBarUnlockedInsideYourBox, statusBarUnlockedTheComputer,
 				statusBarUnlockedTheArena);
 
+		// BEGINNING
+		addStrongDependency(statusBarUnlocked, statusBarUnlockedCfg);
+		addStrongDependency(statusBarUnlockedCfg, statusBarUnlockedSave);
+		addStrongDependency(statusBarUnlockedSave, statusBarUnlockedHealthBar);
+		addStrongDependency(statusBarUnlockedHealthBar, statusBarUnlockedMap);
+
+		// VILLAGE
+		// shop
+		addStrongDependency(statusBarUnlockedMap, secondHouseLollipop1Bought);
+		addStrongDependency(statusBarUnlockedMap, secondHouseLollipop2Bought);
+		addStrongDependency(statusBarUnlockedMap, secondHouseLollipop3Bought);
+		addStrongDependency(statusBarUnlockedMap, secondHouseChocolateBarBought);
+		addStrongDependency(statusBarUnlockedInventory, eqItemGlovesLeatherGloves);
+		addStrongDependency(statusBarUnlockedInventory, eqItemBootsLeatherBoots);
+		// 3rd house
+		addStrongDependency(gridItemPossessedMainMap, SuperRPGReward1);
+		addStrongDependency(SuperRPGReward1, SuperRPGReward2);
+		addStrongDependency(SuperRPGReward2, SuperRPGReward3);
+		addStrongDependency(SuperRPGReward3, SuperRPGReward4);
+		// forge
+		addStrongDependency(statusBarUnlockedMap, forgeFoundLollipop);
+		addStrongDependency(statusBarUnlockedMap, forgeBoughtWoodenSword);
 		addStrongDependency(forgeBoughtWoodenSword, forgeBoughtIronAxe);
 		addStrongDependency(forgeBoughtIronAxe, forgeBoughtPolishedSilverSword);
 		addStrongDependency(forgeBoughtPolishedSilverSword, forgeBoughtLightweightBodyArmour);
 		addStrongDependency(forgeBoughtLightweightBodyArmour, forgeBoughtScythe);
-
-		addStrongDependency(statusBarUnlockedInventory, eqItemGlovesLeatherGloves);
-		addStrongDependency(statusBarUnlockedInventory, eqItemBootsLeatherBoots);
+		// 4th house
+		addStrongDependency(statusBarUnlockedMap, fourthHouseFoundLollipopOnCupboard);
 
 		// MAP LEVEL 1
 		addStrongDependency(gridItemPossessedMainMap, mainMapDoneDesert);
@@ -365,15 +377,15 @@ public enum Key {
 		addStrongDependency(dragonUnlockedCyclops, lighthousePuzzleDone);
 		addStrongDependency(dragonDone, gridItemPossessedA);
 		addStrongDependency(dragonDone, gridItemPossessedY);
+		addStrongDependency(gridItemPossessedP, castleTowerPStoneDone);
+		addStrongDependency(gridItemPossessedL, castleTowerLStoneDone);
+		addStrongDependency(gridItemPossessedA, castleTowerAStoneDone);
+		addStrongDependency(gridItemPossessedY, castleTowerYStoneDone);
 		addStrongDependency(castleKilledNougatMonster, castleTowerFirstVisitDone);
 		addStrongDependency(castleTowerFirstVisitDone, castleTowerPStoneDone);
 		addStrongDependency(castleTowerFirstVisitDone, castleTowerLStoneDone);
 		addStrongDependency(castleTowerFirstVisitDone, castleTowerAStoneDone);
 		addStrongDependency(castleTowerFirstVisitDone, castleTowerYStoneDone);
-		addStrongDependency(gridItemPossessedP, castleTowerPStoneDone);
-		addStrongDependency(gridItemPossessedL, castleTowerLStoneDone);
-		addStrongDependency(gridItemPossessedA, castleTowerAStoneDone);
-		addStrongDependency(gridItemPossessedY, castleTowerYStoneDone);
 		addStrongDependency(castleTowerPStoneDone, castleTowerTookTalkingCandy);
 		addStrongDependency(castleTowerLStoneDone, castleTowerTookTalkingCandy);
 		addStrongDependency(castleTowerAStoneDone, castleTowerTookTalkingCandy);
@@ -386,25 +398,40 @@ public enum Key {
 	}
 
 	private static void addStrongDependency(Key required, Key dependent) {
-		STRONG_DEPENDENCIES.add(new Pair<>(required, dependent));
+		STRONG_DEPENDENCIES.add(new Dependency(required, dependent));
 	}
 
-	private List<Key> dependantKeys;
-
-	private Key(Key... dependantKeys) {
-		this.dependantKeys = Arrays.asList(dependantKeys);
-	}
-
-	public List<Key> getDependentKeys() {
-		return dependantKeys;
-	}
-
+	/**
+	 * Returns whether the specified key exists in the game.
+	 * 
+	 * @param name
+	 *            the name of the key to check
+	 * @return {@code true} if the key exists, false otherwise.
+	 */
 	public static boolean exists(String name) {
 		try {
 			valueOf(name);
 			return true;
 		} catch (IllegalArgumentException e) {
 			return false;
+		}
+	}
+
+	/**
+	 * Defines a dependency between 2 {@link Key}s R (required) and D (dependent).
+	 */
+	public static final class Dependency extends Pair<Key, Key> {
+
+		public Dependency(Key required, Key dependent) {
+			super(required, dependent);
+		}
+
+		public Key getRequired() {
+			return getKey();
+		}
+
+		public Key getDependent() {
+			return getValue();
 		}
 	}
 }
