@@ -14,7 +14,7 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("view/main.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-            stage.setTitle("Candy Game Cheater");
+            stage.setTitle("CandyBox 2 Game Cheater");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
