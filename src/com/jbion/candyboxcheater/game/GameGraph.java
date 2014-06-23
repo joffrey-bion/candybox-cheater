@@ -33,6 +33,7 @@ public class GameGraph {
 	 * Defines sets of {@link Key}s that must always have the same value.
 	 */
 	public static final List<Key[]> BOOLEAN_IDENTITIES = new LinkedList<>();
+
 	/**
 	 * Defines {@link Dependency} relations between boolean variables where:
 	 * <ul>
@@ -54,7 +55,8 @@ public class GameGraph {
 	 * Defines {@link Dependency} relations between a numeric variable R and a
 	 * boolean variable D where:
 	 * <ul>
-	 * <li>If {@code R} falls below the threshold, {@code D} must be set to {@code false}</li>
+	 * <li>If {@code R} falls below the threshold, {@code D} must be set to
+	 * {@code false}</li>
 	 * <li>If {@code D} becomes {@code true}, then if {@code R} is less than the
 	 * threshold, it must be set equal to the threshold</li>
 	 * </ul>

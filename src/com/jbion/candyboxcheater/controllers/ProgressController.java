@@ -3,10 +3,11 @@ package com.jbion.candyboxcheater.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.jbion.candyboxcheater.game.Key;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+
+import com.jbion.candyboxcheater.game.Key;
 
 public class ProgressController extends BaseController {
 
@@ -170,30 +171,32 @@ public class ProgressController extends BaseController {
 		bind(lonelyHouseLureTheBoxWithACandyDone, Key.lonelyHouseLureTheBoxWithACandyDone);
 		bind(lonelyHouseTakeTheBoxDone, Key.lonelyHouseTakeTheBoxDone);
 
-		String[] squirrelProgressValues = { "Nothing done", "Talked to it once", "Answered 1st question (yes)", "Answered 2nd question (C)",
-				"Answered 3rd question (current candies)", "Answered 4th question (10)", "Answered 5th question (wet)", "Started playing game", 
-				"Won game (put crosses out of the grid)", "Finished" };
+		String[] squirrelProgressValues = { "Nothing done", "Talked to it once", "Answered 1st question (yes)",
+				"Answered 2nd question (C)", "Answered 3rd question (current candies)", "Answered 4th question (10)",
+				"Answered 5th question (wet)", "Started playing game", "Won game (put crosses out of the grid)",
+				"Finished" };
 		bindBoxToNumbers(squirrelProgress, Key.aTreeStep, squirrelProgressValues);
-		
+
 		bind(TheCavePattern_ChocolateBarNowGotTheBar, Key.TheCavePattern_ChocolateBarNowGotTheBar);
-		Key[] treasureProgressKeys = { Key.TheCavePattern_TreasureMapSawMap, Key.TheCavePattern_TreasureMapFoundTreasure };
+		Key[] treasureProgressKeys = { Key.TheCavePattern_TreasureMapSawMap,
+				Key.TheCavePattern_TreasureMapFoundTreasure };
 		String[] treasureProgressValues = { "Nothing done", "Treasure map discovered", "Treasure found" };
 		bindBoxToProgressiveBooleans(treasureProgress, treasureProgressValues, treasureProgressKeys);
-		
+
 		bind(sorceressHutTookLollipop, Key.sorceressHutTookLollipop);
 		bind(sorceressHutBoughtGrimoire, Key.sorceressHutBoughtGrimoire);
 		bind(sorceressHutBoughtGrimoire2, Key.sorceressHutBoughtGrimoire2);
 		bind(sorceressHutBoughtCauldron, Key.sorceressHutBoughtCauldron);
 		bind(sorceressHutBoughtHat, Key.sorceressHutBoughtHat);
-		
+
 		bind(theHoleFirstChestFound, Key.theHoleFirstChestFound);
 		bind(theHoleSecondChestFound, Key.theHoleSecondChestFound);
 		bind(theHoleThirdChestFound, Key.theHoleThirdChestFound);
 		bind(theHoleFourthChestFound, Key.theHoleFourthChestFound);
-		
+
 		bind(fortressRoom3ChestFound, Key.fortressRoom3ChestFound);
 		bind(fortressRoom1ChestFound, Key.fortressRoom1ChestFound);
-		
+
 		bind(castleBigRoomHovenHappy, Key.castleBigRoomHovenHappy);
 		Key[] darkRoomProgressKeys = { Key.castleRoom2LitFire, Key.castleRoom2TookObject };
 		String[] darkRoomProgressValues = { "Nothing done", "Fire lit", "Pitchfork found" };
