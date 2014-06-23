@@ -117,7 +117,7 @@ public class ProgressController extends BaseController {
 		Key[] mainMapProgressKeys = { Key.cellarDone, Key.mainMapDoneDesert, Key.mainMapDoneCaveEntrance,
 				Key.mainMapDoneForest, Key.mainMapDoneCastleEntrance, Key.dragonDone };
 		String[] mainMapProgressValues = { "Nothing done", "Main Map obtained", "Desert done", "Cave done",
-				"Forest done", "Castle entrance done", "Dragone done" };
+				"Forest done", "Castle entrance done", "Dragon done" };
 		bindBoxToProgressiveBooleans(mainMapProgress, mainMapProgressValues, mainMapProgressKeys);
 		bind(mainMapDoneBridge, Key.mainMapDoneBridge);
 		bind(mainMapDonePier, Key.mainMapDonePier);
