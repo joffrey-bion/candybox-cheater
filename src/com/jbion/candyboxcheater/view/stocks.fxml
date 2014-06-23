@@ -48,16 +48,22 @@
             <Button mnemonicParsing="false" onAction="#addLollipops" text="Add" GridPane.columnIndex="6" GridPane.rowIndex="4" />
             <Button mnemonicParsing="false" onAction="#addChocolateBars" text="Add" GridPane.columnIndex="6" GridPane.rowIndex="5" />
             <Button mnemonicParsing="false" onAction="#addPainsAuChocolat" text="Add" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-            <Label text="Requires castle oven happy" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+            <Label text="Baked by the castle's oven, they unlock wonderful gifts" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+            <Label text="Found here and there, they can be produced in the lollipop farm" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <Label text="You'll get one each second, but you'll get more with a mill" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <Label text="Very precious items, don't spend all of them enchanting items" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+            <Label text="Eating candies gives you more health" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <Label text="Keep throwing them away and you'll get a chocolate bar" GridPane.columnIndex="8" GridPane.rowIndex="3" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" />
             <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" />
             <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" />
             <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" />
-            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="30.0" />
+            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="10.0" />
             <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="80.0" />
             <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="-Infinity" />
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="10.0" />
             <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" />
          </columnConstraints>
          <rowConstraints>
