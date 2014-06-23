@@ -7,6 +7,8 @@ import javafx.beans.property.SimpleLongProperty;
 
 import org.junit.Test;
 
+import com.jbion.candyboxcheater.bindings.MultiBooleanBinding;
+
 public class TestMultiBooleanBinding {
 
 	@Test

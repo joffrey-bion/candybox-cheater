@@ -1,6 +1,7 @@
 package com.jbion.candyboxcheater.controllers;
 
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
@@ -10,12 +11,12 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
+import com.jbion.candyboxcheater.bindings.MultiBooleanBinding;
 import com.jbion.candyboxcheater.game.GameState;
 import com.jbion.candyboxcheater.game.Key;
 import com.jbion.candyboxcheater.game.variables.BooleanVariable;
 import com.jbion.candyboxcheater.game.variables.NumberVariable;
 import com.jbion.candyboxcheater.game.variables.Variable;
-import com.jbion.candyboxcheater.view.bindings.MultiBooleanBinding;
 import com.jbion.candyboxcheater.view.converters.IndexStringConverter;
 import com.jbion.candyboxcheater.view.converters.StringMapping;
 
@@ -166,8 +167,17 @@ public abstract class BaseController implements Initializable {
 		IndexStringConverter converter = new IndexStringConverter(values);
 		choiceBox.setItems(FXCollections.observableArrayList(values));
 		LongProperty tempProperty = new SimpleLongProperty();
-		MultiBooleanBinding.createMultiBooleanBinding(gameState, tempProperty, booleanKeys);
+		createMultiBooleanBinding(gameState, tempProperty, booleanKeys);
 		choiceBox.setValue(converter.toString(tempProperty.get()));
 		Bindings.bindBidirectional(choiceBox.valueProperty(), tempProperty, converter);
+	}
+
+	private static MultiBooleanBinding createMultiBooleanBinding(GameState state, LongProperty numberProperty,
+			Key... booleanKeys) {
+		BooleanProperty[] booleanProperties = new BooleanProperty[booleanKeys.length];
+		for (int i = 0; i < booleanProperties.length; i++) {
+			booleanProperties[i] = state.getBooleanVariable(booleanKeys[i]).boolValueProperty();
+		}
+		return MultiBooleanBinding.bind(numberProperty, booleanProperties);
 	}
 }
