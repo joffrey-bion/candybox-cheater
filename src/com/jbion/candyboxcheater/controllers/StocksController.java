@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.LongConsumer;
 
-import com.jbion.candyboxcheater.error.ErrorHandler;
+import com.jbion.candyboxcheater.error.StatusHandler;
 import com.jbion.candyboxcheater.game.Key;
 
 import javafx.event.ActionEvent;
@@ -119,8 +119,9 @@ public class StocksController extends BaseController {
 	private static void consumeValue(LongConsumer consumer, TextField intField) {
 		try {
 			consumer.accept(Long.parseLong(intField.getText()));
+			StatusHandler.message(intField.getText() + " more! Yay!");
 		} catch (NumberFormatException e) {
-			ErrorHandler.display("The input text '" + intField.getText() + "' is not a number or is a too big number");
+			StatusHandler.error("The input text '" + intField.getText() + "' is not a number or is a too big number");
 		}
 	}
 }

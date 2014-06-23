@@ -3,8 +3,11 @@ package com.jbion.candyboxcheater.game;
 import java.text.ParseException;
 import java.util.Map;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
 
+import com.jbion.candyboxcheater.game.GameGraph.Dependency;
+import com.jbion.candyboxcheater.game.GameGraph.ThresholdDependency;
 import com.jbion.candyboxcheater.game.variables.BooleanVariable;
 import com.jbion.candyboxcheater.game.variables.NumberVariable;
 import com.jbion.candyboxcheater.game.variables.Variable;
@@ -43,18 +46,10 @@ public class GameState {
 	private GameState() {
 		try {
 			this.vars = CandyGameSaveParser.parse(INIT_GAME);
-		} catch (ParseException e) {
-			throw new RuntimeException("Incorrect initial save", e);
-		}
-	}
-
-	/**
-	 * Resets this {@link GameState} to the save corresponding to the beginning of
-	 * the game.
-	 */
-	public void reset() {
-		try {
-			updateTo(INIT_GAME);
+			bindBooleanIdentities();
+			bindBooleanRequirements();
+			bindThresholdIdentities();
+			bindThresholdRequirements();
 		} catch (ParseException e) {
 			throw new RuntimeException("Incorrect initial save", e);
 		}
@@ -71,6 +66,95 @@ public class GameState {
 	 */
 	public void updateTo(String saveText) throws ParseException {
 		CandyGameSaveParser.parseAndUpdate(saveText, vars);
+	}
+
+	/**
+	 * Resets this {@link GameState} to the save corresponding to the beginning of
+	 * the game.
+	 */
+	public void reset() {
+		try {
+			updateTo(INIT_GAME);
+		} catch (ParseException e) {
+			throw new RuntimeException("Incorrect initial save", e);
+		}
+	}
+
+	private void bindBooleanIdentities() {
+		for (Key[] identity : GameGraph.BOOLEAN_IDENTITIES) {
+			for (int i = 0; i < identity.length - 1; i++) {
+				final BooleanVariable var1 = getBooleanVariable(identity[i]);
+				final BooleanVariable var2 = getBooleanVariable(identity[i + 1]);
+				Bindings.bindBidirectional(var1.boolValueProperty(), var2.boolValueProperty());
+			}
+		}
+	}
+
+	private void bindBooleanRequirements() {
+		for (Dependency dependency : GameGraph.BOOLEAN_REQUIREMENTS) {
+			final BooleanVariable required = getBooleanVariable(dependency.getRequired());
+			final BooleanVariable dependent = getBooleanVariable(dependency.getDependent());
+			required.boolValueProperty().addListener((obs, oldValue, newValue) -> {
+				// if the required variable became false, the dependent can't be true
+					if (!newValue) {
+						dependent.setBooleanValue(false);
+					}
+				});
+			dependent.boolValueProperty().addListener((obs, oldValue, newValue) -> {
+				// if the dependent variable became true, the required has to be true
+					if (newValue) {
+						required.setBooleanValue(true);
+					}
+				});
+		}
+	}
+
+	private void bindThresholdIdentities() {
+		for (ThresholdDependency dependency : GameGraph.THRESHOLD_IDENTITIES) {
+			final NumberVariable required = getNumberVariable(dependency.getRequired());
+			final BooleanVariable dependent = getBooleanVariable(dependency.getDependent());
+			required.longValueProperty().addListener((obsValue, oldValue, newValue) -> {
+				dependent.setBooleanValue(newValue.longValue() >= dependency.getThreshold());
+			});
+			dependent.boolValueProperty().addListener((obs, oldValue, newValue) -> {
+				long threshold = dependency.getThreshold();
+				if (required.getLongValue() < threshold) {
+					// if the dependent variable became true, the required variable
+					// has to be at least equal to the threshold
+					if (newValue) {
+						required.setLongValue(threshold);
+					}
+				} else {
+					// the dependent variable became false, the required variable has
+					// to be below the threshold
+					if (!newValue) {
+						required.setLongValue(threshold > 0 ? threshold - 1 : 0);
+					}
+				}
+			});
+		}
+	}
+
+	private void bindThresholdRequirements() {
+		for (ThresholdDependency dependency : GameGraph.THRESHOLD_REQUIREMENTS) {
+			final NumberVariable required = getNumberVariable(dependency.getRequired());
+			final BooleanVariable dependent = getBooleanVariable(dependency.getDependent());
+			required.longValueProperty().addListener((obsValue, oldValue, newValue) -> {
+				if (newValue.longValue() < dependency.getThreshold()) {
+					// the required variable became false, so the dependent can't be
+					// true
+					dependent.setBooleanValue(false);
+				}
+			});
+			dependent.boolValueProperty().addListener((obs, oldValue, newValue) -> {
+				long threshold = dependency.getThreshold();
+				if (newValue && required.getLongValue() < threshold) {
+					// the dependent variable became true, so the required has to be
+					// above the threshold
+					required.setLongValue(threshold);
+				}
+			});
+		}
 	}
 
 	@Override

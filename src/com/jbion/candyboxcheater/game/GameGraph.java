@@ -27,7 +27,7 @@ import javafx.util.Pair;
  * </ul>
  * 
  */
-public class GameGraph {
+class GameGraph {
 
 	/**
 	 * Defines sets of {@link Key}s that must always have the same value.
