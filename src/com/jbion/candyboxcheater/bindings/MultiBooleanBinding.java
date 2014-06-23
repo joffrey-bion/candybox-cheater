@@ -5,6 +5,22 @@ import javafx.beans.property.LongProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
+/**
+ * Allows to bind a list of booleans to a numeric value. The numeric value represent
+ * how many consecutive booleans are {@code true} at the beginning of the list. The
+ * only valid states are states where all {@code true} booleans are at the beginning
+ * of the list.
+ * <p>
+ * The following properties are always guaranteed:
+ * </p>
+ * <ul>
+ * <li>If a boolean is {@code true}, then all preceding booleans in the list are
+ * {@code true} too.</li>
+ * <li>If a boolean is {@code false}, then all following booleans in the list are
+ * {@code false} too.</li>
+ * <li>The numeric value is always equal to the number of {@code true} booleans.</li>
+ * </ul>
+ */
 public class MultiBooleanBinding {
 
 	private final LongProperty numberProperty;
