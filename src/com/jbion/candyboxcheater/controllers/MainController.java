@@ -38,7 +38,7 @@ public class MainController extends BaseController {
 
 		// save text binding
 		rawText.setText(gameState.toString());
-		gameState.getStringBinding().addListener((observable, oldValue, newValue) -> {
+		gameState.getStateBinding().addListener((observable, oldValue, newValue) -> {
 			rawText.setText(newValue);
 		});
 	}
