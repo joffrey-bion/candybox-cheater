@@ -181,7 +181,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>
          <bottom>
-            <Label alignment="TOP_LEFT" BorderPane.alignment="TOP_LEFT" />
+            <Label fx:id="log" alignment="TOP_LEFT" BorderPane.alignment="TOP_LEFT" />
          </bottom>
       </BorderPane>
    </bottom>

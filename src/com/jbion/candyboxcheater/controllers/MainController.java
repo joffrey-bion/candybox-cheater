@@ -5,15 +5,19 @@ import java.text.ParseException;
 import java.util.ResourceBundle;
 
 import com.jbion.candyboxcheater.error.StatusHandler;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 
 public class MainController extends BaseController {
 
+	@FXML
+	private Label log;
 	@FXML
 	private TextArea rawText;
 	@FXML
