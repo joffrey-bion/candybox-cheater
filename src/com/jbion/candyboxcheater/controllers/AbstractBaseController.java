@@ -12,6 +12,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
 import com.jbion.candyboxcheater.bindings.MultiBooleanBinding;
+import com.jbion.candyboxcheater.error.StatusHandler;
 import com.jbion.candyboxcheater.game.GameState;
 import com.jbion.candyboxcheater.game.Key;
 import com.jbion.candyboxcheater.game.variables.BooleanVariable;
@@ -23,6 +24,12 @@ import com.jbion.candyboxcheater.view.converters.StringMapping;
 public abstract class AbstractBaseController implements Initializable {
 
 	protected final GameState gameState = GameState.getInstance();
+	
+	protected StatusHandler statusHandler;
+	
+	public void setStatusHandler(StatusHandler handler) {
+		this.statusHandler = handler;
+	}
 
 	/**
 	 * Binds the specified {@link Label} to the value of the specified variable.

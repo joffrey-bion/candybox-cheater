@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.jbion.candyboxcheater.error.StatusHandler;
 
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,8 +14,20 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.paint.Color;
 
 public class MainController extends AbstractBaseController {
+	
+	@FXML
+	private EquipmentController equipmentController;
+	@FXML
+	private InventoryController inventoryController;
+	@FXML
+	private MiscellaneousController miscellaneousController;
+	@FXML
+	private ProgressController progressController;
+	@FXML
+	private StocksController stocksController;
 
 	@FXML
 	private Label log;
@@ -24,9 +37,25 @@ public class MainController extends AbstractBaseController {
 	private Button reparseBtn;
 	@FXML
 	private Button clipboardBtn;
+	
+	private ChangeListener<Boolean> errorStatusListener = (obs, old, newValue) -> {
+		if (newValue) {
+			// the text is an error
+			log.setTextFill(Color.web("#CC0000"));
+		} else {
+			// the text is not an error
+			log.setTextFill(Color.BLACK);
+		}
+	};
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		statusHandler = new StatusHandler(errorStatusListener, log.textProperty());
+		equipmentController.setStatusHandler(statusHandler);
+		inventoryController.setStatusHandler(statusHandler);
+		miscellaneousController.setStatusHandler(statusHandler);
+		progressController.setStatusHandler(statusHandler);
+		stocksController.setStatusHandler(statusHandler);
 		// save text binding
 		rawText.setText(gameState.toString());
 		gameState.getStateBinding().addListener((observable, oldValue, newValue) -> {
@@ -47,9 +76,9 @@ public class MainController extends AbstractBaseController {
 		try {
 			gameState.updateTo(saveText);
 			rawText.setText(gameState.toString());
-			StatusHandler.message("Textual save parsed successfully, you can safely edit it!");
+			statusHandler.message("Textual save parsed successfully, you can safely edit it!");
 		} catch (ParseException e) {
-			StatusHandler.error("Parsing error at position " + e.getErrorOffset() + ": " + e.getMessage());
+			statusHandler.error("Parsing error (position " + e.getErrorOffset() + "): " + e.getMessage());
 		}
 	}
 }

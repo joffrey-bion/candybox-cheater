@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.LongConsumer;
 
-import com.jbion.candyboxcheater.error.StatusHandler;
 import com.jbion.candyboxcheater.game.Key;
 
 import javafx.event.ActionEvent;
@@ -63,7 +62,7 @@ public class StocksController extends AbstractBaseController {
 	private TextField chocolateBarsAddField;
 	@FXML
 	private TextField painsAuChocolatAddField;
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		bind(gameCandiesCurrent, Key.gameCandiesCurrent);
@@ -116,12 +115,12 @@ public class StocksController extends AbstractBaseController {
 		consumeValue(gameState::incrementPainsAuChocolat, painsAuChocolatAddField);
 	}
 
-	private static void consumeValue(LongConsumer consumer, TextField intField) {
+	private void consumeValue(LongConsumer consumer, TextField intField) {
 		try {
 			consumer.accept(Long.parseLong(intField.getText()));
-			StatusHandler.message(intField.getText() + " more! Yay!");
+			statusHandler.message(intField.getText() + " more! Yay!");
 		} catch (NumberFormatException e) {
-			StatusHandler.error("The input text '" + intField.getText() + "' is not a number or is a too big number");
+			statusHandler.error("The input text '" + intField.getText() + "' is not a number or is a too big number");
 		}
 	}
 }

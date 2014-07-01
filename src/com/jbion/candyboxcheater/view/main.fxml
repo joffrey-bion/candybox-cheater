@@ -98,7 +98,7 @@
                      <children>
                         <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <content>
-                              <fx:include source="stocks.fxml" />
+                              <fx:include fx:id="stocks" source="stocks.fxml" />
                            </content>
                         </ScrollPane>
                      </children>
@@ -111,7 +111,7 @@
                      <children>
                         <ScrollPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <content>
-                              <fx:include source="progress.fxml" />
+                              <fx:include fx:id="progress" source="progress.fxml" />
                            </content></ScrollPane>
                      </children>
                   </AnchorPane>
@@ -123,7 +123,7 @@
                      <children>
                         <ScrollPane layoutX="220.0" layoutY="75.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <content>
-                              <fx:include source="equipment.fxml" />
+                              <fx:include fx:id="equipment" source="equipment.fxml" />
                            </content></ScrollPane>
                      </children>
                   </AnchorPane>
@@ -135,7 +135,7 @@
                      <children>
                         <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <content>
-                              <fx:include source="inventory.fxml" />
+                              <fx:include fx:id="inventory" source="inventory.fxml" />
                            </content></ScrollPane>
                      </children></AnchorPane>
               </content>
@@ -146,7 +146,7 @@
                      <children>
                         <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <content>
-                              <fx:include source="miscellaneous.fxml" />
+                              <fx:include fx:id="miscellaneous" source="miscellaneous.fxml" />
                            </content></ScrollPane>
                      </children>
                   </AnchorPane>
@@ -181,7 +181,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>
          <bottom>
-            <Label fx:id="log" alignment="TOP_LEFT" BorderPane.alignment="TOP_LEFT" />
+            <Label fx:id="log" alignment="TOP_LEFT" styleClass="log-text" BorderPane.alignment="TOP_LEFT" />
          </bottom>
       </BorderPane>
    </bottom>

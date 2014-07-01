@@ -1,6 +1,10 @@
+.log-text {
+	-fx-font-size: 12px;	
+	-fx-font-weight: bold;
+}
+
 .section-title {
-	-fx-font-size: 14px;
-	
+	-fx-font-size: 14px;	
 }
 
 .subsection-title, .section-title {
