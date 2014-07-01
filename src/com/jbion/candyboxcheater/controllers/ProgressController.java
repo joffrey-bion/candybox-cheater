@@ -9,7 +9,7 @@ import javafx.scene.control.ChoiceBox;
 
 import com.jbion.candyboxcheater.game.Key;
 
-public class ProgressController extends BaseController {
+public class ProgressController extends AbstractBaseController {
 
 	@FXML
 	private ChoiceBox<String> mainMapProgress;

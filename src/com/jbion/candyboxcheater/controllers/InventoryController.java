@@ -10,7 +10,7 @@ import javafx.scene.control.ChoiceBox;
 import com.jbion.candyboxcheater.controllers.widgets.IntegerFieldController;
 import com.jbion.candyboxcheater.game.Key;
 
-public class InventoryController extends BaseController {
+public class InventoryController extends AbstractBaseController {
 	@FXML
 	private CheckBox gridItemPossessedMainMap;
 	@FXML

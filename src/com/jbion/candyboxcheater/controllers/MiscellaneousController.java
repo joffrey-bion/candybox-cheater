@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 
-public class MiscellaneousController extends BaseController {
+public class MiscellaneousController extends AbstractBaseController {
 
 	@FXML
 	private ChoiceBox<String> gameLanguage;

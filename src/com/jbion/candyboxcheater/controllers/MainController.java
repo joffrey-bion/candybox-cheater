@@ -14,7 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 
-public class MainController extends BaseController {
+public class MainController extends AbstractBaseController {
 
 	@FXML
 	private Label log;

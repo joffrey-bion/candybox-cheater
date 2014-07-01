@@ -8,7 +8,7 @@ import com.jbion.candyboxcheater.game.Key;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 
-public class EquipmentController extends BaseController {
+public class EquipmentController extends AbstractBaseController {
 	
 	@FXML
 	private CheckBox eqItemWeaponWoodenSword;
