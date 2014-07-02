@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="15.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Welcome to CBC, you Candy lover!" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label maxWidth="1.7976931348623157E308" minHeight="-Infinity" text="This program is a variable editor for the game Candybox 2. This game can be played at candybox2.net." wrapText="true">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+      <VBox minHeight="-Infinity" spacing="10.0">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" styleClass="section-title" text="Get the &quot;Save&quot; tab in a new game" />
+            <Label lineSpacing="3.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" text="1. Wait for 30 current candies to get the developer request button&#10;2. Add options by clicking that new button until you get a &quot;Save&quot; tab" wrapText="true">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox minHeight="-Infinity" spacing="10.0">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" styleClass="section-title" text="Edit your own game" />
+            <Label lineSpacing="3.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" text="1. Go to the &quot;Save&quot; tab, &quot;Saving&quot; section, and click on &quot;Get the current game as text&quot;&#10;2. Copy the text and paste it below, and click the &quot;Parse save&quot; button&#10;3. You're now able to edit your save! Visit other tabs of this program and enjoy!" wrapText="true">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </VBox>
+      <VBox minHeight="-Infinity" spacing="10.0">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" styleClass="section-title" text="Have no fear" />
+            <Label maxWidth="1.7976931348623157E308" minHeight="-Infinity" text="The dependencies between the variables are taken care of: just edit what you want and I'll keep other &#10;variables consistent with your choices. You'll never end up in a state that the game can't recognize." wrapText="true">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </VBox>
+      <VBox minHeight="-Infinity" spacing="10.0">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" styleClass="section-title" text="Time to play!" />
+            <Label lineSpacing="3.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" text="1. Click the &quot;Copy to clipboard&quot; button at the bottom of this window&#10;2. Go back to the website and go to the &quot;Save&quot; tab&#10;3. Paste the text in the &quot;Loading&quot; section&#10;4. Click &quot;Load&quot; and enjoy your new experience!" wrapText="true">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>

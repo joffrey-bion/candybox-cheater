@@ -10,3 +10,8 @@
 .subsection-title, .section-title {
 	-fx-font-weight: bold;
 }
+
+.pasted-save-text {
+	-fx-font-family: monospace;
+	-fx-font-size: 10px;	
+}
