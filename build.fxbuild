@@ -4,5 +4,5 @@
     <application name="CandyBoxCheater" mainclass="com.jbion.candyboxcheater.Main" version="1.0" toolkit="fx"/>
     <info title="Candy Box Cheater" vendor="Hildan Software"/>
   </deploy>
-  <signjar alias="HildanSoft" keypass="D@rkLink40" storepass="D@rkLink40"/>
+  <signjar alias="HildanSoft" keypass="" storepass=""/>
 </anttasks:AntTask>
