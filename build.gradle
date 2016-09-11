@@ -32,11 +32,6 @@ javafx {
     // Main class of application
     mainClass 'org.hildan.candyboxcheater.Main'
 
-    // JVM arguments, system properties, application command line arguments
-    jvmArgs = ['-XX:+AggressiveOpts', '-XX:CompileThreshold=1']
-    systemProperties = ['prism.disableRegionCaching': 'true']
-    arguments = ['-l', '--fast']
-
     // deploy/info attributes
     category = 'Games'
     copyright = 'Copyright (c) 2016 Joffrey Bion'
