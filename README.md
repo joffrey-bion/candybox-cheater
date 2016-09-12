@@ -1,14 +1,12 @@
 # CandyBox2 Cheater
 
-A JavaFX program that helps editing CandyBox2 saves.
+A JavaFX program that helps editing CandyBox2 saves. This game can be played at [candybox2.net](http://candybox2.net/).
 
 ## Download
 
 You can find download the latest version here: [![Download](https://api.bintray.com/packages/joffrey-bion/applications/candybox-cheater/images/download.svg) ](https://bintray.com/joffrey-bion/applications/candybox-cheater/_latestVersion)
 
 ## Features
-
-This program is a variable editor for the game Candybox 2. This game can be played at [candybox2.net](http://candybox2.net/).
 
 ### Consistency
 
