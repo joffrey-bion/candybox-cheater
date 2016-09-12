@@ -4,9 +4,7 @@ A JavaFX program that helps editing CandyBox2 saves.
 
 ## Download
 
-You can find download the latest version here:
-
-[![Download](https://api.bintray.com/packages/joffrey-bion/applications/candybox-cheater/images/download.svg) ](https://bintray.com/joffrey-bion/applications/candybox-cheater/_latestVersion)
+You can find download the latest version here: [![Download](https://api.bintray.com/packages/joffrey-bion/applications/candybox-cheater/images/download.svg) ](https://bintray.com/joffrey-bion/applications/candybox-cheater/_latestVersion)
 
 ## Features
 
