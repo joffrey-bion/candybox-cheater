@@ -8,12 +8,6 @@ You can find download the latest version here:
 
 [![Download](https://api.bintray.com/packages/joffrey-bion/applications/candybox-cheater/images/download.svg) ](https://bintray.com/joffrey-bion/applications/candybox-cheater/_latestVersion)
 
-## What does it look like?
-
-![Progress tab](https://raw.githubusercontent.com/joffrey-bion/candybox-cheater/master/doc/screenshots/progress-tab.png)
-
-![Inventory tab](https://raw.githubusercontent.com/joffrey-bion/candybox-cheater/master/doc/screenshots/inventory-tab.png)
-
 ## Features
 
 This program is a variable editor for the game Candybox 2. This game can be played at [candybox2.net](http://candybox2.net/).
@@ -27,6 +21,12 @@ CandyBox Cheater doesn't let you mess up your save by setting dependent variable
 ### Simplicity
 
 With this simple UI using checkboxes, no more digging into that big bunch of text representing the save, and no more typo crashing the load of the save.
+
+## What does it look like?
+
+![Progress tab](https://raw.githubusercontent.com/joffrey-bion/candybox-cheater/master/doc/screenshots/progress-tab.png)
+
+![Inventory tab](https://raw.githubusercontent.com/joffrey-bion/candybox-cheater/master/doc/screenshots/inventory-tab.png)
 
 ## Report issues - Suggest improvements
 
